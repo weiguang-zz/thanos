@@ -1,4 +1,4 @@
-package com.hl.kingkong.entity;
+package com.dm.thanos.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

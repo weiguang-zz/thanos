@@ -1,12 +1,12 @@
-package com.hl.kingkong;
+package com.dm.thanos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KingkongApplication {
+public class ThanosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KingkongApplication.class, args);
+		SpringApplication.run(ThanosApplication.class, args);
 	}
 }

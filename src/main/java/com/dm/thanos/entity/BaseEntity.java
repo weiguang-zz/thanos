@@ -1,4 +1,4 @@
-package com.hl.kingkong.entity;
+package com.dm.thanos.entity;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.MoreObjects.ToStringHelper;

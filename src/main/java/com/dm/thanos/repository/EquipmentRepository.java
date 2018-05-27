@@ -1,6 +1,6 @@
-package com.hl.kingkong.repository;
+package com.dm.thanos.repository;
 
-import com.hl.kingkong.entity.Equipment;
+import com.dm.thanos.entity.Equipment;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**

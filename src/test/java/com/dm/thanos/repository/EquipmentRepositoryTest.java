@@ -1,8 +1,6 @@
-package com.hl.kingkong.repository;
+package com.dm.thanos.repository;
 
-import static org.junit.Assert.*;
-
-import com.hl.kingkong.AbstractIntegrationTest;
+import com.dm.thanos.AbstractIntegrationTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

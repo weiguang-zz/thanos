@@ -1,4 +1,4 @@
-package com.hl.kingkong;
+package com.dm.thanos;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Rollback
 @Transactional
 @WebIntegrationTest(randomPort = true)
-@SpringApplicationConfiguration(classes = KingkongApplication.class)
+@SpringApplicationConfiguration(classes = ThanosApplication.class)
 public abstract class AbstractIntegrationTest {
 
 }
