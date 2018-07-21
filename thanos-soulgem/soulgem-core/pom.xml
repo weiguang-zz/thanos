@@ -13,4 +13,11 @@
   <artifactId>soulgem-core</artifactId>
   <packaging>jar</packaging>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-mongodb</artifactId>
+    </dependency>
+  </dependencies>
+
 </project>
