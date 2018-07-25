@@ -1,9 +1,8 @@
 package com.thanos.soulgem.domain.authority;
 
-import com.thanos.soulgem.domain.common.Entity;
+import com.thanos.soulgem.domain.common.BaseEntity;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,7 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Email:zhangzheng@youzan.com
  */
 @Document
-public class User extends Entity{
+public class User extends BaseEntity {
+
+  @DBRef
+  Company company;
+
+  Department department;
 
   String username;
 

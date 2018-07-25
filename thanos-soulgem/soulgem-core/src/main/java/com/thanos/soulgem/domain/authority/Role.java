@@ -1,6 +1,6 @@
 package com.thanos.soulgem.domain.authority;
 
-import com.thanos.soulgem.domain.common.Entity;
+import com.thanos.soulgem.domain.common.BaseEntity;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Email:zhangzheng@youzan.com
  */
 @Document
-public class Role extends Entity{
+public class Role extends BaseEntity {
 
   String name;
 

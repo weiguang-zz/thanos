@@ -1,8 +1,6 @@
 package com.thanos.soulgem.domain.authority;
 
-import com.thanos.soulgem.domain.common.Entity;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
+import com.thanos.soulgem.domain.common.BaseEntity;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -10,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * Email:zhangzheng@youzan.com
  */
 @Document
-public class Permission extends Entity {
+public class Permission extends BaseEntity {
 
   String url;
 

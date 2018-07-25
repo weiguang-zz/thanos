@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
  * Create by zhangzheng on 7/20/18
  * Email:zhangzheng@youzan.com
  */
-public class Entity {
+public class BaseEntity {
   @Id
   ObjectId id;
 
