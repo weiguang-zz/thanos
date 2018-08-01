@@ -1,6 +1,8 @@
 package com.thanos.soulgem.rest.controller;
 
 import com.thanos.soulgem.app.UserApp;
+import com.thanos.soulgem.domain.authority.Company;
+import com.thanos.soulgem.domain.authority.CompanyRepo;
 import com.thanos.soulgem.domain.authority.User;
 import static com.thanos.soulgem.rest.check.InputAssert.*;
 
@@ -21,10 +23,15 @@ public class UserController {
   @Resource
   UserApp userApp;
 
+  @Resource
+  CompanyRepo companyRepo;
+
 
   @PostMapping
   public void save(@RequestBody UserSignUp userSignUp){
-    User user = new User(userSignUp.getUsername(), userSignUp.getPassword());
+    Company company = companyRepo.findByName(userSignUp.getCompanyName());
+    notNull(company, "company not exists");
+    User user = new User(company, userSignUp.getUsername(), userSignUp.getPassword());
     userApp.save(user);
   }
 

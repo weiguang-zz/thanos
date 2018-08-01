@@ -14,22 +14,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  */
 @Configuration
 @EnableMongoRepositories(basePackages = "com.thanos.soulgem.domain")
-public class MongoAutoConfig extends AbstractMongoConfiguration {
+public class MongoAutoConfig {
 
 
-  @Override
-  protected String getDatabaseName() {
-    return "thanos";
-  }
-
-  @Override
-  public Mongo mongo() throws Exception {
-    return new MongoClient();
-  }
-
-  @Bean
-  public DateRecordAdvice mongoAdvice(){
-    return new DateRecordAdvice();
-  }
 
 }

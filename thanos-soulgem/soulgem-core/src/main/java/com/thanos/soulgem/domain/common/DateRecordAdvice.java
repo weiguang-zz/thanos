@@ -2,15 +2,18 @@ package com.thanos.soulgem.domain.common;
 
 import com.mongodb.DBObject;
 import java.util.Date;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.data.mongodb.core.mapping.event.AfterSaveEvent;
 import org.springframework.data.mongodb.core.mapping.event.BeforeDeleteEvent;
 import org.springframework.data.mongodb.core.mapping.event.BeforeSaveEvent;
+import org.springframework.stereotype.Component;
 
 /**
  * Create by zhangzheng on 7/20/18
  * Email:zhangzheng@youzan.com
  */
+@Component
 public class DateRecordAdvice extends AbstractMongoEventListener{
 
   private static String CREATED_AT = "createdAt";

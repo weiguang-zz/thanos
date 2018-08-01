@@ -12,6 +12,8 @@ import lombok.Data;
 @Data
 public class UserSignUp {
   @NotNull
+  String companyName;
+  @NotNull
   String username;
 
   @Min(5)

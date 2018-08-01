@@ -1,6 +1,9 @@
 package com.thanos.soulgem.app;
 
+import com.thanos.soulgem.BaseIntegrationTest;
 import com.thanos.soulgem.IntegrationTestConfiguration;
+import com.thanos.soulgem.domain.authority.Company;
+import com.thanos.soulgem.domain.authority.CompanyRepo;
 import com.thanos.soulgem.domain.authority.Permission;
 import com.thanos.soulgem.domain.authority.PermissionRepo;
 import com.thanos.soulgem.domain.authority.Role;
@@ -13,14 +16,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Create by zhangzheng on 7/20/18
  * Email:zhangzheng@youzan.com
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = IntegrationTestConfiguration.class)
-public class UserAppTest {
+public class UserAppTest extends BaseIntegrationTest {
 
   @Resource
   UserApp userApp;
@@ -33,6 +35,9 @@ public class UserAppTest {
 
   @Resource
   UserRepo userRepo;
+
+  @Resource
+  CompanyRepo companyRepo;
 
   @Test
   public void save() {
@@ -48,7 +53,14 @@ public class UserAppTest {
 //    userApp.save(user);
 //
 //
-    User user = userRepo.findOne(new ObjectId("5b52d93eaa73821d960a9116"));
+//    User user = userRepo.findOne(new ObjectId("5b52d93eaa73821d960a9116"));
+//    System.out.println("done");
+  }
+  @Test(expected = Exception.class)
+  public void testIdentity(){
+    Company company = new Company("name",null,"132");
+    companyRepo.save(company);
+    companyRepo.save(company);
     System.out.println("done");
   }
 
