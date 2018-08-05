@@ -6,6 +6,7 @@ import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
 
 import com.thanos.soulgem.domain.exception.ApplicationException;
 import com.thanos.soulgem.domain.exception.BusinessException;
+import com.thanos.soulgem.domain.exception.IllegalInputException;
 import com.thanos.soulgem.domain.exception.ResultCase;
 import com.thanos.soulgem.domain.exception.ResultCase.Id;
 import javax.servlet.http.HttpServletRequest;

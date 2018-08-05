@@ -1,5 +1,8 @@
-package com.thanos.soulgem.rest.command;
+package com.thanos.soulgem.domain.authority.command;
 
+import com.thanos.soulgem.domain.authority.User;
+import com.thanos.soulgem.domain.common.Validator;
+import javax.validation.Validation;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -10,12 +13,14 @@ import lombok.Data;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class UserSignUp {
+public class UserSignUp extends Validator<UserSignUp> {
   @NotNull
   String companyName;
+
   @NotNull
   String username;
 
+  @NotNull
   @Min(5)
   @Max(30)
   String password;

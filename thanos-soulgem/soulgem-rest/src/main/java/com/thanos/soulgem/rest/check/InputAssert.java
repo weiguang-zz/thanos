@@ -1,6 +1,6 @@
 package com.thanos.soulgem.rest.check;
 
-import com.thanos.soulgem.rest.advice.IllegalInputException;
+import com.thanos.soulgem.domain.exception.IllegalInputException;
 import java.util.Collection;
 import java.util.Map;
 
@@ -12,6 +12,12 @@ public final class InputAssert {
   public static void notNull(Object value, String valueDesc) {
     if (!ValueChecks.notNull(value)) {
       throw new IllegalInputException(String.format("%s is null", valueDesc));
+    }
+  }
+
+  public static void check(boolean condition, String errorMsg) {
+    if (condition) {
+      throw new IllegalInputException(errorMsg);
     }
   }
 

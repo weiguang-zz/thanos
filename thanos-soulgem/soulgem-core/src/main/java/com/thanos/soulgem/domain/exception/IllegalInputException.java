@@ -1,4 +1,4 @@
-package com.thanos.soulgem.rest.advice;
+package com.thanos.soulgem.domain.exception;
 
 
 import com.thanos.soulgem.domain.exception.ApplicationException;
