@@ -7,6 +7,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
+import org.bson.types.ObjectId;
 
 /**
  * Create by zhangzheng on 7/20/18
@@ -15,7 +16,7 @@ import lombok.Data;
 @Data
 public class UserSignUp extends Validator<UserSignUp> {
   @NotNull
-  String companyName;
+  ObjectId companyId;
 
   @NotNull
   String username;

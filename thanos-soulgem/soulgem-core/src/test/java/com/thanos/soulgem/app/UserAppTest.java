@@ -60,6 +60,7 @@ public class UserAppTest extends BaseIntegrationTest {
   public void testIdentity(){
     Company company = new Company("name",null,"132");
     companyRepo.save(company);
+    company = new Company("name",null,"132");
     companyRepo.save(company);
     System.out.println("done");
   }

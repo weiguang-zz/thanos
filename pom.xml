@@ -21,6 +21,7 @@
 		<java.version>1.8</java.version>
 		<guava.version>19.0</guava.version>
 		<h2.version>1.4.191</h2.version>
+		<swagger2.version>2.8.0</swagger2.version>
 	</properties>
 	<modules>
 		<module>thanos-soulgem</module>
@@ -35,6 +36,18 @@
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>${guava.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger2.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

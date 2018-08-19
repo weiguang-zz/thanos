@@ -21,11 +21,11 @@ public class Company {
   String name;
 
   @DBRef
-  Company parent;
+  ObjectId parent;
 
   String telephone;
 
-  public Company(String name, Company parent, String telephone) {
+  public Company(String name, ObjectId parent, String telephone) {
     this.name = name;
     this.parent = parent;
     this.telephone = telephone;

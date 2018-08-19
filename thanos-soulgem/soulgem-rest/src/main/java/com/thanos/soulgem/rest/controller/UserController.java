@@ -21,9 +21,6 @@ public class UserController {
   @Resource
   UserApp userApp;
 
-  @Resource
-  CompanyRepo companyRepo;
-
 
   @PostMapping
   public void save(@RequestBody UserSignUp userSignUp){

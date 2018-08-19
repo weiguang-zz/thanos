@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Aggregate
 @CompoundIndexes({
-    @CompoundIndex(name = "identity", def = "{'company.id' : 1, 'username': 1}")
+    @CompoundIndex(name = "company_username", def = "{'company.id' : 1, 'username': 2}")
 })
 public class User extends BaseEntity {
 

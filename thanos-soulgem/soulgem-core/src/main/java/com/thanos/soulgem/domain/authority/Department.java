@@ -18,6 +18,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 })
 @Document
 public class Department {
+  @Id
+  ObjectId id;
 
   @DBRef
   Company company;
@@ -25,7 +27,7 @@ public class Department {
   String name;
 
   //父级部门
-  Department parent;
+  ObjectId parent;
 
   String telephone;
 
@@ -33,7 +35,7 @@ public class Department {
   String mark;
 
   public Department(Company company, String name,
-      Department parent, String telephone, String mark) {
+      ObjectId parent, String telephone, String mark) {
     this.company = company;
     this.name = name;
     this.parent = parent;
