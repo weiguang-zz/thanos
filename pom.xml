@@ -27,6 +27,7 @@
 		<module>thanos-soulgem</module>
 		<module>thanos-spacegem</module>
 		<module>thanos-deploy</module>
+		<module>thanos-common</module>
 	</modules>
 
 

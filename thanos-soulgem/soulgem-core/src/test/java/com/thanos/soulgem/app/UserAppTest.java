@@ -1,22 +1,13 @@
 package com.thanos.soulgem.app;
 
 import com.thanos.soulgem.BaseIntegrationTest;
-import com.thanos.soulgem.IntegrationTestConfiguration;
-import com.thanos.soulgem.domain.authority.Company;
-import com.thanos.soulgem.domain.authority.CompanyRepo;
-import com.thanos.soulgem.domain.authority.Permission;
-import com.thanos.soulgem.domain.authority.PermissionRepo;
-import com.thanos.soulgem.domain.authority.Role;
-import com.thanos.soulgem.domain.authority.RoleRepo;
-import com.thanos.soulgem.domain.authority.User;
-import com.thanos.soulgem.domain.authority.UserRepo;
+import com.thanos.soulgem.domain.identity.Company;
+import com.thanos.soulgem.domain.identity.CompanyRepo;
+import com.thanos.soulgem.domain.identity.PermissionRepo;
+import com.thanos.soulgem.domain.identity.RoleRepo;
+import com.thanos.soulgem.domain.identity.UserRepo;
 import javax.annotation.Resource;
-import org.bson.types.ObjectId;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Create by zhangzheng on 7/20/18

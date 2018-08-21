@@ -1,6 +1,6 @@
 package com.thanos.soulgem.rest.check;
 
-import com.thanos.soulgem.domain.exception.IllegalInputException;
+import com.thanos.common.domain.exception.IllegalInputException;
 import java.util.Collection;
 import java.util.Map;
 

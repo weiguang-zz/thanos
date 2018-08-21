@@ -1,11 +1,8 @@
 package com.thanos.soulgem.rest.controller;
 
 import com.thanos.soulgem.app.UserApp;
-import com.thanos.soulgem.domain.authority.CompanyRepo;
-import com.thanos.soulgem.domain.authority.command.UserSignUp;
+import com.thanos.soulgem.domain.identity.command.UserSignUp;
 import javax.annotation.Resource;
-import javax.validation.Valid;
-import javax.validation.Validation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

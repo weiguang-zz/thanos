@@ -1,11 +1,11 @@
 package com.thanos.soulgem.app;
 
-import com.thanos.soulgem.domain.authority.Company;
-import com.thanos.soulgem.domain.authority.CompanyRepo;
-import com.thanos.soulgem.domain.authority.User;
-import com.thanos.soulgem.domain.authority.UserRepo;
-import com.thanos.soulgem.domain.authority.command.UserSignUp;
-import com.thanos.soulgem.domain.exception.BizAssert;
+import com.thanos.soulgem.domain.identity.Company;
+import com.thanos.soulgem.domain.identity.CompanyRepo;
+import com.thanos.soulgem.domain.identity.User;
+import com.thanos.soulgem.domain.identity.UserRepo;
+import com.thanos.soulgem.domain.identity.command.UserSignUp;
+import com.thanos.common.domain.exception.BizAssert;
 import javax.annotation.Resource;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;

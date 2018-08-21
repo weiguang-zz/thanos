@@ -3,7 +3,7 @@ package com.thanos.soulgem.rest.controller;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.thanos.soulgem.domain.authority.command.UserSignUp;
+import com.thanos.soulgem.domain.identity.command.UserSignUp;
 import org.bson.types.ObjectId;
 import org.junit.Test;
 import org.springframework.http.MediaType;
