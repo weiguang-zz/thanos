@@ -15,4 +15,10 @@ public class RealtimeData extends Aggregate{
   Date time;
   String value;
 
+  public RealtimeData(ObjectId companyId, String collectPointCode, String value) {
+    this.companyId = companyId;
+    this.collectPointCode = collectPointCode;
+    this.value = value;
+    this.time = new Date();
+  }
 }

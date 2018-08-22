@@ -24,28 +24,4 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 public class IntegrationTestConfiguration {
 
-//  private final static Integer MONGO_PORT = 12345;
-//  private final static String MONGO_IP = "localhost";
-//
-//
-//  @BeforeClass
-//  public void startInMemoryMongoServer() throws IOException {
-//    MongodExecutable mongodExecutable = null;
-//    try {
-//      MongodStarter starter = MongodStarter.getDefaultInstance();
-//
-//      IMongodConfig mongodConfig = new MongodConfigBuilder()
-//          .version(Version.Main.PRODUCTION)
-//          .net(new Net(MONGO_IP, MONGO_PORT, Network.localhostIsIPv6()))
-//          .build();
-//
-//      mongodExecutable = starter.prepare(mongodConfig);
-//      mongodExecutable.start();
-//
-//    } finally {
-//      if (mongodExecutable != null)
-//        mongodExecutable.stop();
-//    }
-//  }
-
 }
