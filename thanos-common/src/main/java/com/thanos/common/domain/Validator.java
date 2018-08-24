@@ -19,12 +19,14 @@ public abstract class Validator<T> {
     try {
       Set<ConstraintViolation<T>> constraintViolations =  Validation.buildDefaultValidatorFactory().getValidator().validate(
           (T)this);
-      StringBuffer buf = new StringBuffer();
-      for(ConstraintViolation<T> violation: constraintViolations) {
-        buf.append(violation.getPropertyPath().toString()).append(" ");
-        buf.append(violation.getMessage() + "\n");
+      if(constraintViolations.size()>0){
+        StringBuffer buf = new StringBuffer();
+        for(ConstraintViolation<T> violation: constraintViolations) {
+          buf.append(violation.getPropertyPath().toString()).append(" ");
+          buf.append(violation.getMessage() + "\n");
+        }
+        throw new IllegalInputException(buf.toString());
       }
-      throw new IllegalInputException(buf.toString());
     }catch (IllegalArgumentException | ValidationException e){
       throw new ApplicationException(Id.internal_error,e.getMessage());
     }

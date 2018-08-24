@@ -37,13 +37,13 @@ public class ValidationServiceTest extends BaseIntegrationTest{
     someRole.assinPermission(somePermission);
     roleRepo.save(someRole);
     User someUser = new User(someCompany ,
-        someUsername,"somePassword");
+        someUsername);
     someUser.assinRole(someRole);
     userRepo.save(someUser);
 
-    assertTrue(validationService.validatePermission(someCompany.id, someUsername,someUrl));
+    assertTrue(validationService.validatePermission(someUsername,someUrl));
     String otherUrl = "/otherUrl";
-    assertFalse(validationService.validatePermission(someCompany.id, someUsername,otherUrl));
+    assertFalse(validationService.validatePermission(someUsername,otherUrl));
 
   }
 

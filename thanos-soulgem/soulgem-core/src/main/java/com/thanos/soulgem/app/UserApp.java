@@ -25,14 +25,18 @@ public class UserApp {
   public void save(UserSignUp userSignUp){
     Company company = companyRepo.findOne(userSignUp.getCompanyId());
     BizAssert.check(company!=null, "company不存在");
-    checkUserNameNotExist(userSignUp.getCompanyId(), userSignUp.getUsername());
-    User user = new User(company, userSignUp.getUsername(), userSignUp.getPassword());
+    checkUserNameNotExist(userSignUp.getUsername());
+    User user = new User(company, userSignUp.getUsername());
     userRepo.save(user);
   }
 
+  public User detail(ObjectId id){
+    return userRepo.findOne(id);
+  }
 
-  private void checkUserNameNotExist(ObjectId companyId, String username){
-    User user = userRepo.findByUsernameAndCompany(username, companyId);
+
+  private void checkUserNameNotExist(String username){
+    User user = userRepo.findByUsername(username);
     BizAssert.check(user==null, "username:{} exists", username);
   }
 

@@ -14,13 +14,12 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
  * Email:zhangzheng@youzan.com
  */
 @CompoundIndexes({
-    @CompoundIndex(name = "identity", def = "{'company.name' : 1, 'name': 1}")
+    @CompoundIndex(name = "identity", def = "{'companyId' : 1, 'name': 1}")
 })
 public class Role extends Aggregate{
 
   ObjectId companyId;
 
-  @Indexed(unique = true)
   String name;
 
   @DBRef

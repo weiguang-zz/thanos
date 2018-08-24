@@ -11,12 +11,11 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
  * Email:zhangzheng@youzan.com
  */
 @CompoundIndexes({
-    @CompoundIndex(name = "identity", def = "{'company.name' : 1, 'name': 1}")
+    @CompoundIndex(name = "identity", def = "{'companyId' : 1, 'name': 1}")
 })
 public class Department extends Aggregate{
 
-  @DBRef
-  Company company;
+  ObjectId companyId;
 
   String name;
 
@@ -28,9 +27,9 @@ public class Department extends Aggregate{
   //备注
   String mark;
 
-  public Department(Company company, String name,
+  public Department(ObjectId companyId, String name,
       ObjectId parent, String telephone, String mark) {
-    this.company = company;
+    this.companyId = companyId;
     this.name = name;
     this.parent = parent;
     this.telephone = telephone;

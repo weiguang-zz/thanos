@@ -18,8 +18,7 @@ public class UserControllerTest extends BaseControllerTest {
   public void testIllegalInput() throws Exception {
     UserSignUp userSignUp = new UserSignUp();
     userSignUp.setCompanyId(new ObjectId("5b52d1d7aa73821baf1f23cb"));
-    userSignUp.setUsername("someUsername");
-    userSignUp.setPassword("xx");
+    userSignUp.setUsername("some");
 
     mockMvc.perform(post("/users")
         .contentType(MediaType.APPLICATION_JSON)

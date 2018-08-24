@@ -14,7 +14,6 @@ public class Company extends Aggregate{
   @Indexed(unique = true)
   String name;
 
-  @DBRef
   ObjectId parent;
 
   String telephone;

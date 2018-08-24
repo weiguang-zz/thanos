@@ -4,6 +4,7 @@ import com.thanos.common.domain.Validator;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import lombok.Data;
 import org.bson.types.ObjectId;
 
@@ -17,11 +18,7 @@ public class UserSignUp extends Validator<UserSignUp> {
   ObjectId companyId;
 
   @NotNull
+  @Size(min = 5, max = 30)
   String username;
-
-  @NotNull
-  @Min(5)
-  @Max(30)
-  String password;
 
 }

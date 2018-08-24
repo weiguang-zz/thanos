@@ -16,8 +16,8 @@ public class ValidationService {
   @Resource
   UserRepo userRepo;
 
-  public boolean validatePermission(ObjectId companyId,String username, String url){
-    User user = userRepo.findByUsernameAndCompany(username,companyId);
+  public boolean validatePermission(String username, String url){
+    User user = userRepo.findByUsername(username);
     return user.hasPermission(url);
   }
 
