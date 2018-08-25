@@ -1,9 +1,7 @@
-package com.thanos.soulgem.domain.core;
+package com.thanos.soulgem.domain.basic;
 
 import com.thanos.common.domain.Aggregate;
-import com.thanos.soulgem.domain.core.command.SaveOrUpdateSquarePart;
 import org.bson.types.ObjectId;
-import org.springframework.beans.BeanUtils;
 
 /**
  * Create by zhangzheng on 8/19/18
@@ -20,7 +18,7 @@ public class SquarePart extends Aggregate {
   String technicalParameters;//技术参数
   String others;
 
-  public SquarePart(SaveOrUpdateSquarePart saveOrUpdateSquarePart) {
-    BeanUtils.copyProperties(saveOrUpdateSquarePart, this);
+  public ObjectId equipmentId() {
+    return equipmentId;
   }
 }

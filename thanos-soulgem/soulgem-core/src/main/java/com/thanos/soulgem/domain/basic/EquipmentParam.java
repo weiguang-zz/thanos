@@ -1,4 +1,4 @@
-package com.thanos.soulgem.domain.core;
+package com.thanos.soulgem.domain.basic;
 
 import com.thanos.common.domain.ValueObject;
 
@@ -10,4 +10,9 @@ import com.thanos.common.domain.ValueObject;
 public class EquipmentParam {
   String name;
   String value;
+
+  public EquipmentParam(String name, String value) {
+    this.name = name;
+    this.value = value;
+  }
 }

@@ -1,10 +1,12 @@
-package com.thanos.soulgem.domain.core.command;
+package com.thanos.soulgem.domain.basic.command;
 
 import com.thanos.common.domain.Validator;
+import com.thanos.soulgem.domain.basic.LubricatingCard;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import org.bson.types.ObjectId;
+import org.springframework.beans.BeanUtils;
 
 /**
  * Create by zhangzheng on 8/19/18
@@ -13,7 +15,6 @@ import org.bson.types.ObjectId;
 @Data
 public class SaveOrUpdateLubricatingCard extends Validator<SaveOrUpdateLubricatingCard> {
 
-  ObjectId id;
   @NotNull
   ObjectId equipmentId;
   @NotNull
@@ -37,5 +38,11 @@ public class SaveOrUpdateLubricatingCard extends Validator<SaveOrUpdateLubricati
   @NotNull
   @Min(0)
   Double temperature;//标准温度
+
+  public LubricatingCard build(){
+    LubricatingCard lubricatingCard = new LubricatingCard();
+    BeanUtils.copyProperties(this, lubricatingCard);
+    return lubricatingCard;
+  }
 
 }

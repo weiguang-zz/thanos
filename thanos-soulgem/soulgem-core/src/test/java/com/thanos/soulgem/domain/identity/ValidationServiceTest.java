@@ -1,6 +1,7 @@
 package com.thanos.soulgem.domain.identity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import com.thanos.soulgem.BaseIntegrationTest;
 import javax.annotation.Resource;
@@ -33,11 +34,11 @@ public class ValidationServiceTest extends BaseIntegrationTest{
     permissionRepo.save(somePermission);
     Company someCompany = new Company(someCompanyName,null,null);
     companyRepo.save(someCompany);
-    Role someRole = new Role(someCompany.id,"role");
+    Role someRole = new Role(someCompany.id(),"role");
     someRole.assinPermission(somePermission);
     roleRepo.save(someRole);
     User someUser = new User(someCompany ,
-        someUsername);
+        someUsername,someUsername);
     someUser.assinRole(someRole);
     userRepo.save(someUser);
 

@@ -12,6 +12,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public abstract class Aggregate {
   @Id
-  public ObjectId id;
+  ObjectId id;
+
+  public ObjectId id(){
+    return id;
+  }
 
 }

@@ -1,11 +1,11 @@
 package com.thanos.soulgem.app;
 
+import com.thanos.common.domain.exception.BizAssert;
 import com.thanos.soulgem.domain.identity.Company;
 import com.thanos.soulgem.domain.identity.CompanyRepo;
 import com.thanos.soulgem.domain.identity.User;
 import com.thanos.soulgem.domain.identity.UserRepo;
 import com.thanos.soulgem.domain.identity.command.UserSignUp;
-import com.thanos.common.domain.exception.BizAssert;
 import javax.annotation.Resource;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class UserApp {
     Company company = companyRepo.findOne(userSignUp.getCompanyId());
     BizAssert.check(company!=null, "company不存在");
     checkUserNameNotExist(userSignUp.getUsername());
-    User user = new User(company, userSignUp.getUsername());
+    User user = new User(company, userSignUp.getUsername(), userSignUp.getRealname());
     userRepo.save(user);
   }
 

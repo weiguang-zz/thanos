@@ -1,17 +1,17 @@
 package com.thanos.soulgem.app;
 
-import com.thanos.soulgem.domain.core.Equipment;
-import com.thanos.soulgem.domain.core.EquipmentRepo;
-import com.thanos.soulgem.domain.core.LubricatingCard;
-import com.thanos.soulgem.domain.core.LubricatingCardRepo;
-import com.thanos.soulgem.domain.core.SquarePart;
-import com.thanos.soulgem.domain.core.SquarePartRepo;
-import com.thanos.soulgem.domain.core.command.SaveOrUpdateEquipment;
-import com.thanos.soulgem.domain.core.command.SaveOrUpdateLubricatingCard;
-import com.thanos.soulgem.domain.core.command.SaveOrUpdateSquarePart;
-import static com.thanos.common.domain.exception.BizAssert.*;
+import static com.thanos.common.domain.exception.BizAssert.check;
+
+import com.thanos.soulgem.domain.basic.Equipment;
+import com.thanos.soulgem.domain.basic.EquipmentCategoryRepo;
+import com.thanos.soulgem.domain.basic.EquipmentRepo;
+import com.thanos.soulgem.domain.basic.LubricatingCardRepo;
+import com.thanos.soulgem.domain.basic.SquarePartRepo;
+import com.thanos.soulgem.domain.basic.command.SaveOrUpdateEquipment;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,16 +26,23 @@ public class EquipmentApp {
   SquarePartRepo squarePartRepo;
   @Autowired
   LubricatingCardRepo lubricatingCardRepo;
+  @Autowired
+  EquipmentCategoryRepo equipmentCategoryRepo;
 
   /**
    * 新增或者修改设备，跟repo的save方法统一
    * @param saveOrUpdateEquipment
    */
-  public void saveOrUpdate(SaveOrUpdateEquipment saveOrUpdateEquipment){
-    Equipment equipment = new Equipment(saveOrUpdateEquipment);
-    if(saveOrUpdateEquipment.getId()!=null){
-      check(equipmentRepo.exists(saveOrUpdateEquipment.getId()),"id not exist");
-    }
+  public void save(SaveOrUpdateEquipment saveOrUpdateEquipment){
+    saveOrUpdateEquipment.setCategory(equipmentCategoryRepo.findOne(saveOrUpdateEquipment.getCategoryId()));
+    Equipment equipment = saveOrUpdateEquipment.build();
+    equipmentRepo.save(equipment);
+  }
+
+  public void update(ObjectId id, SaveOrUpdateEquipment saveOrUpdateEquipment){
+    check(equipmentRepo.exists(id), "id not exists");
+    Equipment equipment = equipmentRepo.findOne(id);
+    equipment.merge(saveOrUpdateEquipment);
     equipmentRepo.save(equipment);
   }
 
@@ -50,40 +57,13 @@ public class EquipmentApp {
     lubricatingCardRepo.deleteAllByEquipmentId(id);
   }
 
-
-  /**
-   * 新增或者修改备件
-   * @param saveOrUpdateSquarePart
-   */
-  public void saveOrUpdateSquarePart(SaveOrUpdateSquarePart saveOrUpdateSquarePart){
-    check(equipmentRepo.exists(saveOrUpdateSquarePart.getEquipmentId()), "equipmentId not exist");
-    if(saveOrUpdateSquarePart.getId()!=null){
-      check(squarePartRepo.exists(saveOrUpdateSquarePart.getId()),
-          "id not exist");
-    }
-    SquarePart squarePart = new SquarePart(saveOrUpdateSquarePart);
-    squarePartRepo.save(squarePart);
+  public Equipment detail(ObjectId id){
+    check(equipmentRepo.exists(id), "id not exists");
+    return equipmentRepo.findOne(id);
   }
 
-  public void deleteSquarePart(ObjectId id){
-    check(squarePartRepo.exists(id), "id not exist");
-    squarePartRepo.delete(id);
+  public Page<Equipment> list(Pageable pageable){
+    return equipmentRepo.findAll(pageable);
   }
-
-  public void saveOrUpdateLubricatingCard(SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
-    check(equipmentRepo.exists(saveOrUpdateLubricatingCard.getEquipmentId()), "equipmentId not exist");
-    if(saveOrUpdateLubricatingCard.getId()!=null){
-      check(lubricatingCardRepo.exists(saveOrUpdateLubricatingCard.getId()),
-          "id not exist");
-    }
-    LubricatingCard lubricatingCard = new LubricatingCard(saveOrUpdateLubricatingCard);
-    lubricatingCardRepo.save(lubricatingCard);
-  }
-
-  public void deleteLubricatingCard(ObjectId id){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    lubricatingCardRepo.delete(id);
-  }
-
 
 }

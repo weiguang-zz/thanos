@@ -4,9 +4,6 @@ import com.thanos.common.domain.Aggregate;
 import com.thanos.common.domain.exception.BizAssert;
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
@@ -27,6 +24,8 @@ public class User extends Aggregate {
   @Indexed(unique = true)
   String username;
 
+  String realname;
+
   String password;
 
   Boolean passwordChanged = false;
@@ -34,9 +33,10 @@ public class User extends Aggregate {
   @DBRef
   List<Role> roles = new ArrayList<>();
 
-  public User(Company company,String username) {
+  public User(Company company,String username,String realname) {
     this.company = company;
     this.username = username;
+    this.realname = realname;
     this.password = DEFAULT_PASSWORD;
   }
 
@@ -56,7 +56,7 @@ public class User extends Aggregate {
 
 
   public void assginDepartment(Department department){
-    BizAssert.check(department.companyId.equals(company.id),
+    BizAssert.check(department.companyId.equals(company.id()),
         "用户所在公司跟部门所在的公司不一致");
     this.department = department;
   }

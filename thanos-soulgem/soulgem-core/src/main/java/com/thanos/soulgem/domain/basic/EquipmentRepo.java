@@ -1,4 +1,4 @@
-package com.thanos.soulgem.domain.core;
+package com.thanos.soulgem.domain.basic;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
  * Email:zhangzheng@youzan.com
  */
 @Repository
-public interface SquarePartRepo extends MongoRepository<SquarePart,ObjectId>{
-
-  void deleteAllByEquipmentId(ObjectId id);
+public interface EquipmentRepo extends MongoRepository<Equipment,ObjectId> {
 
 }
