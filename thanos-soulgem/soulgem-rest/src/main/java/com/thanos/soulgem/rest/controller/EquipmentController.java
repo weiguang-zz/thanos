@@ -13,6 +13,8 @@ import com.thanos.soulgem.domain.basic.command.SaveOrUpdateEquipment;
 import com.thanos.soulgem.domain.basic.command.SaveOrUpdateLubricatingCard;
 import com.thanos.soulgem.domain.basic.command.SaveOrUpdateSquarePart;
 import com.thanos.soulgem.rest.dto.Page;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -33,6 +35,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("equipments")
+
 public class EquipmentController {
 
   @Autowired
@@ -43,32 +46,38 @@ public class EquipmentController {
   LubricatingCardApp lubricatingCardApp;
 
   @PostMapping
+  @ApiOperation(value = "新增设备")
   public void save(@RequestBody SaveOrUpdateEquipment saveOrUpdateEquipment){
     saveOrUpdateEquipment.validate();
     equipmentApp.save(saveOrUpdateEquipment);
   }
   @PutMapping("/{id}")
-  public void update(@PathVariable("id")ObjectId id, SaveOrUpdateEquipment saveOrUpdateEquipment){
+  @ApiOperation(value = "更新设备")
+  public void update(@ApiParam(type = "string") @PathVariable("id")ObjectId id, @RequestBody SaveOrUpdateEquipment saveOrUpdateEquipment){
     saveOrUpdateEquipment.validate();
     check(id!=null, "id is null");
     equipmentApp.update(id, saveOrUpdateEquipment);
   }
   @DeleteMapping("/{id}")
+  @ApiOperation(value = "删除设备")
   public void delete(@PathVariable("id")ObjectId id){
     check(id!=null, "id is null");
     equipmentApp.delete(id);
   }
   @GetMapping("/{id}")
+  @ApiOperation(value = "查询设备详情")
   public Equipment detail(@PathVariable("id")ObjectId id){
     check(id!=null, "id is null");
     return equipmentApp.detail(id);
   }
   @GetMapping
+  @ApiOperation(value = "设备列表")
   public Page<Equipment> list(@PageableDefault Pageable pageable){
     return Page.of(equipmentApp.list(pageable));
   }
 
   @PostMapping("/{id}/squartParts")
+  @ApiOperation(value = "新增设备下的备件")
   public void saveSquarePart(@PathVariable("id") ObjectId id, @RequestBody SaveOrUpdateSquarePart saveOrUpdateSquarePart){
     check(id!=null, "equipment id must not be null");
     saveOrUpdateSquarePart.setEquipmentId(id);
@@ -76,6 +85,7 @@ public class EquipmentController {
     squarePartApp.save(saveOrUpdateSquarePart);
   }
   @PutMapping("/{eid}/squareParts/{sid}")
+  @ApiOperation(value = "修改设备下的某个备件")
   public void updateSquarePart(@PathVariable("eid")ObjectId equipmentId,
       @PathVariable("sid")ObjectId squarePartId,
       @RequestBody SaveOrUpdateSquarePart saveOrUpdateSquarePart){
@@ -83,17 +93,20 @@ public class EquipmentController {
     squarePartApp.update(squarePartId, saveOrUpdateSquarePart);
   }
   @DeleteMapping("/{eid}/squareParts/{sid}")
+  @ApiOperation(value = "删除设备下的备件")
   public void deleteSquarePart(@PathVariable("eid")ObjectId equipmentId,
       @PathVariable("sid")ObjectId squarePartId){
     squarePartApp.delete(squarePartId);
   }
   @GetMapping("/{id}/squartParts")
+  @ApiOperation(value = "查询设备备件目录")
   public Page<SquarePart> squareParts(@PathVariable("id")ObjectId equipmentId, @PageableDefault Pageable pageable){
     notNull(equipmentId,"equipmentId");
     return Page.of(squarePartApp.listAllInEquipment(equipmentId, pageable));
   }
 
   @PostMapping("/{id}/lubricatingCards")
+  @ApiOperation(value = "新增润滑卡片")
   public void saveLubricatingCard(@PathVariable("eid")ObjectId equipmentId,
       @RequestBody SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
     notNull(equipmentId, "equipmentId");
@@ -101,6 +114,7 @@ public class EquipmentController {
     lubricatingCardApp.save(saveOrUpdateLubricatingCard);
   }
   @DeleteMapping("/{eid}/lubricatingCards/{lid}")
+  @ApiOperation(value = "删除润滑卡片")
   public void deleteLubricatingCard(@PathVariable("eid")ObjectId equipmentId,
       @PathVariable("lid")ObjectId lubricatingCardId){
     notNull(equipmentId,"equipmentId");
@@ -108,6 +122,7 @@ public class EquipmentController {
     lubricatingCardApp.delete(lubricatingCardId);
   }
   @PutMapping("/{eid}/lubricatingCards/{lid}")
+  @ApiOperation(value = "修改润滑卡片")
   public void updateLubricatingCard(@PathVariable("eid")ObjectId equipmentId,
       @PathVariable("lid")ObjectId lubricatingCardId,
       @RequestBody SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
@@ -117,12 +132,12 @@ public class EquipmentController {
     lubricatingCardApp.update(lubricatingCardId, saveOrUpdateLubricatingCard);
   }
   @GetMapping("/{id}/lubricatingCards")
+  @ApiOperation(value = "查询设备下的润滑卡片列表")
   public Page<LubricatingCard> lubricatingCards(@PathVariable("id")ObjectId equipmentId,
       @PageableDefault Pageable pageable){
     notNull(equipmentId, "equipmentId");
     return Page.of(lubricatingCardApp.listByEquipmentId(equipmentId, pageable));
   }
-
 
 
 

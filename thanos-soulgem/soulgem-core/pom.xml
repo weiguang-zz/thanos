@@ -33,6 +33,11 @@
       <version>5.2.4.Final</version>
     </dependency>
 
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+    </dependency>
+
   </dependencies>
 
 </project>

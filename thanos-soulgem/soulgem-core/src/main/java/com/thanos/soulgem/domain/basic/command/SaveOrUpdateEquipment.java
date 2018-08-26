@@ -4,6 +4,8 @@ import com.thanos.common.domain.Validator;
 import com.thanos.soulgem.domain.basic.Equipment;
 import com.thanos.soulgem.domain.basic.EquipmentCategory;
 import com.thanos.soulgem.domain.basic.EquipmentParam;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -14,6 +16,7 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  */
 @Data
+@ApiModel
 public class SaveOrUpdateEquipment extends Validator<SaveOrUpdateEquipment> {
 
   @NotNull
@@ -26,8 +29,7 @@ public class SaveOrUpdateEquipment extends Validator<SaveOrUpdateEquipment> {
   String useTo;
 
   List<EquipmentParam> params;
-
-
+  @ApiModelProperty(hidden = true)
   EquipmentCategory category;
 
   public Equipment build(){
