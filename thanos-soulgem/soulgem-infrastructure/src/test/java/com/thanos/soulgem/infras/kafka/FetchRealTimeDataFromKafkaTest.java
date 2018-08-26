@@ -3,8 +3,8 @@ package com.thanos.soulgem.infras.kafka;
 import static org.junit.Assert.assertEquals;
 
 import com.google.gson.Gson;
-import com.thanos.common.domain.RealtimeData;
-import com.thanos.soulgem.domain.monitor.FetchRealtimeDataService;
+import com.thanos.common.domain.RealTimeData;
+import com.thanos.soulgem.domain.monitor.FetchRealTimeDataService;
 import com.thanos.soulgem.infras.kafka.spring.KafkaAutoConfig;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,10 +32,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 @DirtiesContext
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {KafkaAutoConfig.class, KafkaAutoConfiguration.class})
-public class FetchRealtimeDataFromKafkaTest {
+public class FetchRealTimeDataFromKafkaTest {
 
   @Autowired
-  FetchRealtimeDataService fetchRealtimeDataService;
+  FetchRealTimeDataService fetchRealTimeDataService;
   @Autowired
   KafkaTemplate<String,String> kafkaTemplate;
   @Autowired
@@ -57,14 +57,14 @@ public class FetchRealtimeDataFromKafkaTest {
 
   @Test
   public void testSendAndFetchData() {
-    List<RealtimeData> realtimeDatas = new ArrayList<>();
+    List<RealTimeData> realTimeData = new ArrayList<>();
     ObjectId someObjectId = new ObjectId("5b52d1d7aa73821baf1f23cb");
     String someCode = "someCode";
     String someValue = "someValue";
-    realtimeDatas.add(new RealtimeData(someObjectId, someCode, someValue));
-    kafkaTemplate.send(TOPIC,gson.toJson(realtimeDatas));
+    realTimeData.add(new RealTimeData(someObjectId, someCode, someValue));
+    kafkaTemplate.send(TOPIC,gson.toJson(realTimeData));
 
-    List<RealtimeData> dataReceived = fetchRealtimeDataService.fetch(500L, TimeUnit.MILLISECONDS);
+    List<RealTimeData> dataReceived = fetchRealTimeDataService.fetch(500L, TimeUnit.MILLISECONDS);
     assertEquals(1, dataReceived.size());
   }
 

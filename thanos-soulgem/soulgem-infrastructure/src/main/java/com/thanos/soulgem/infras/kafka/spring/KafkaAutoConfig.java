@@ -1,7 +1,7 @@
 package com.thanos.soulgem.infras.kafka.spring;
 
-import com.thanos.soulgem.domain.monitor.FetchRealtimeDataService;
-import com.thanos.soulgem.infras.kafka.FetchRealtimeDataFromKafka;
+import com.thanos.soulgem.domain.monitor.FetchRealTimeDataService;
+import com.thanos.soulgem.infras.kafka.FetchRealTimeDataFromKafka;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
@@ -15,8 +15,8 @@ import org.springframework.kafka.annotation.EnableKafka;
 public class KafkaAutoConfig {
 
   @Bean
-  public FetchRealtimeDataService fetchRealtimeDataService(){
-    return new FetchRealtimeDataFromKafka();
+  public FetchRealTimeDataService fetchRealtimeDataService(){
+    return new FetchRealTimeDataFromKafka();
   }
 
 

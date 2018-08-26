@@ -16,7 +16,6 @@
     <data key="d0"/>
     <node id="n0">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="95.0" width="214.0" x="69.0" y="225.0"/>
@@ -40,7 +39,6 @@ resouceType:String 资源的类型</y:AttributeLabel>
     </node>
     <node id="n1">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="74.0" width="239.0" x="374.75" y="235.5"/>
@@ -63,7 +61,6 @@ permissions:List&lt;Permission&gt; 权限列表</y:AttributeLabel>
     </node>
     <node id="n2">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="142.0" width="259.25" x="364.625" y="358.0"/>
@@ -77,7 +74,8 @@ permissions:List&lt;Permission&gt; 权限列表</y:AttributeLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>name:String 名字
+            <y:AttributeLabel>username:String 名字
+realName:String 真实的名字
 password:String 密码
 company: Company 公司
 department:Department 部门
@@ -89,7 +87,6 @@ roles:List&lt;Role&gt; 角色列表</y:AttributeLabel>
     </node>
     <node id="n3">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="123.0" width="249.0" x="58.5" y="377.0"/>
@@ -114,7 +111,6 @@ mark:String</y:AttributeLabel>
     </node>
     <node id="n4">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="123.0" width="230.0" x="681.0" y="377.0"/>
@@ -138,7 +134,6 @@ telephone:电话</y:AttributeLabel>
     </node>
     <node id="n5">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="74.0" width="249.0" x="58.5" y="530.0"/>
@@ -159,7 +154,6 @@ telephone:电话</y:AttributeLabel>
       </data>
     </node>
     <edge id="e0" source="n1" target="n0">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -170,7 +164,6 @@ telephone:电话</y:AttributeLabel>
       </data>
     </edge>
     <edge id="e1" source="n2" target="n1">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -181,7 +174,6 @@ telephone:电话</y:AttributeLabel>
       </data>
     </edge>
     <edge id="e2" source="n2" target="n3">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
@@ -192,7 +184,6 @@ telephone:电话</y:AttributeLabel>
       </data>
     </edge>
     <edge id="e3" source="n2" target="n4">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>

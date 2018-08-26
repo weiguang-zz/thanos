@@ -1,6 +1,6 @@
 package com.thanos.soulgem.domain.monitor;
 
-import com.thanos.common.domain.RealtimeData;
+import com.thanos.common.domain.RealTimeData;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -9,14 +9,14 @@ import java.util.concurrent.TimeUnit;
  * Email:zhangzheng@youzan.com
  *
  */
-public interface FetchRealtimeDataService {
+public interface FetchRealTimeDataService {
 
   /**
    * 获取监控数据，没有更多数据话，就阻塞
    * @return
    */
-  List<RealtimeData> fetch();
+  List<RealTimeData> fetch();
 
-  List<RealtimeData> fetch(Long timeout, TimeUnit unit);
+  List<RealTimeData> fetch(Long timeout, TimeUnit unit);
 
 }
