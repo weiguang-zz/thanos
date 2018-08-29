@@ -2,7 +2,6 @@ package com.thanos.soulgem.domain.identity;
 
 import com.thanos.common.domain.DomainService;
 import javax.annotation.Resource;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,9 +15,9 @@ public class ValidationService {
   @Resource
   UserRepo userRepo;
 
-  public boolean validatePermission(String username, String url){
+  public boolean validatePermission(String username, String className,String methodGenericString){
     User user = userRepo.findByUsername(username);
-    return user.hasPermission(url);
+    return user.hasPermission(className, methodGenericString);
   }
 
 }

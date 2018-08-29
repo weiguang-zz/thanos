@@ -1,5 +1,7 @@
 package com.thanos.soulgem.autoconfig;
 
+import com.thanos.soulgem.domain.identity.PermissionPointBeanPostProcessor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
@@ -11,6 +13,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages = "com.thanos.soulgem.domain")
 public class MongoAutoConfig {
 
+  @Bean
+  public PermissionPointBeanPostProcessor permissionPointBeanPostProcessor(){
+    return new PermissionPointBeanPostProcessor();
+  }
 
 
 }
