@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.14.RELEASE</version>
+		<version>2.1.0.M1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -62,14 +62,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<!--<version>2.1.0.RC2</version>-->
+		</dependency>
 	</dependencies>
 
 
-	<build>
-		<plugins>
 
-		</plugins>
-	</build>
-
+	<repositories>
+		<repository>
+			<id>spring-libs-snapshot</id>
+			<name>Spring Snapshot Repository</name>
+			<url>http://repo.spring.io/libs-snapshot</url>
+		</repository>
+	</repositories>
 
 </project>

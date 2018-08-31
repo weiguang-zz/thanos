@@ -31,10 +31,9 @@ public class Role extends Aggregate{
     permissions.add(permission);
   }
 
-  public boolean hasPermission(String className,String methodGenericString){
+  public boolean hasPermission(String methodGenericString){
     for(Permission permission:permissions){
-      if(permission.className.equals(className) &&
-          permission.methodGenericString.equals(methodGenericString)){
+      if(permission.methodGenericString.equals(methodGenericString)){
         return true;
       }
     }

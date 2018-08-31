@@ -23,7 +23,7 @@ public class UserApp {
   CompanyRepo companyRepo;
 
   public void save(UserSignUp userSignUp){
-    Company company = companyRepo.findOne(userSignUp.getCompanyId());
+    Company company = companyRepo.findById(userSignUp.getCompanyId()).get();
     BizAssert.check(company!=null, "company不存在");
     checkUserNameNotExist(userSignUp.getUsername());
     User user = new User(company, userSignUp.getUsername(), userSignUp.getRealname());
@@ -31,7 +31,7 @@ public class UserApp {
   }
 
   public User detail(ObjectId id){
-    return userRepo.findOne(id);
+    return userRepo.findById(id).get();
   }
 
 

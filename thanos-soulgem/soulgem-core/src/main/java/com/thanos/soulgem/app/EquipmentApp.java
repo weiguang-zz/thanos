@@ -34,14 +34,14 @@ public class EquipmentApp {
    * @param saveOrUpdateEquipment
    */
   public void save(SaveOrUpdateEquipment saveOrUpdateEquipment){
-    saveOrUpdateEquipment.setCategory(equipmentCategoryRepo.findOne(saveOrUpdateEquipment.getCategoryId()));
+    saveOrUpdateEquipment.setCategory(equipmentCategoryRepo.findById(saveOrUpdateEquipment.getCategoryId()).get());
     Equipment equipment = saveOrUpdateEquipment.build();
     equipmentRepo.save(equipment);
   }
 
   public void update(ObjectId id, SaveOrUpdateEquipment saveOrUpdateEquipment){
-    check(equipmentRepo.exists(id), "id not exists");
-    Equipment equipment = equipmentRepo.findOne(id);
+    check(equipmentRepo.existsById(id), "id not exists");
+    Equipment equipment = equipmentRepo.findById(id).get();
     equipment.merge(saveOrUpdateEquipment);
     equipmentRepo.save(equipment);
   }
@@ -51,15 +51,15 @@ public class EquipmentApp {
    * @param id
    */
   public void delete(ObjectId id){
-    check(equipmentRepo.exists(id), "id not exists");
-    equipmentRepo.delete(id);
+    check(equipmentRepo.existsById(id), "id not exists");
+    equipmentRepo.deleteById(id);
     squarePartRepo.deleteAllByEquipmentId(id);
     lubricatingCardRepo.deleteAllByEquipmentId(id);
   }
 
   public Equipment detail(ObjectId id){
-    check(equipmentRepo.exists(id), "id not exists");
-    return equipmentRepo.findOne(id);
+    check(equipmentRepo.existsById(id), "id not exists");
+    return equipmentRepo.findById(id).get();
   }
 
   public Page<Equipment> list(Pageable pageable){

@@ -40,7 +40,7 @@ public class FetchAndSaveRealTimeData implements InitializingBean,Runnable{
   public void run() {
     while(true){
       List<RealTimeData> realTimeData = fetchRealTimeDataService.fetch();
-      realTimeDataRepo.save(realTimeData);
+      realTimeDataRepo.saveAll(realTimeData);
       logger.info("save realtime data success,count:{}", realTimeData.size());
     }
   }

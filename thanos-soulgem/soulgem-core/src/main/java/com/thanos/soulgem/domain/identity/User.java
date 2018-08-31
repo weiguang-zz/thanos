@@ -45,9 +45,9 @@ public class User extends Aggregate {
     passwordChanged = true;
   }
 
-  public boolean hasPermission(String className,String methodGenericString){
+  public boolean hasPermission(String methodGenericString){
     for(Role role:roles){
-      if(role.hasPermission(className, methodGenericString)){
+      if(role.hasPermission(methodGenericString)){
         return true;
       }
     }

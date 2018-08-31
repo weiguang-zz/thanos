@@ -25,12 +25,17 @@ public class PermissionInitService implements ApplicationListener<ApplicationRea
     permissions.add(permission);
   }
 
+  //for integration tests
+  public static void clearPermissions(){
+    permissions.clear();
+  }
+
   //刷新权限数据到存储中
   private void syncPermissions(){
     //因为是value object，所以整个全量替换就可以
     log.info("start to sync permissions..");
     permissionRepo.deleteAll();
-    permissionRepo.save(permissions);
+    permissionRepo.saveAll(permissions);
     log.info("finished");
   }
 

@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.util.ReflectionUtils;
 
@@ -12,7 +13,7 @@ import org.springframework.util.ReflectionUtils;
  * Create by zhangzheng on 8/29/18
  * Email:zhangzheng@youzan.com
  */
-public class PermissionPointBeanPostProcessor implements BeanPostProcessor {
+public class PermissionPointBeanPostProcessor implements BeanPostProcessor,Ordered{
 
   @Override
   public Object postProcessBeforeInitialization(Object bean, String beanName)
@@ -31,9 +32,8 @@ public class PermissionPointBeanPostProcessor implements BeanPostProcessor {
       }
       String name = annotation.name();
       PermissionGroup permissionGroup = annotation.group();
-      String className = bean.getClass().getName();
       String methodGenericString = method.toGenericString();
-      Permission permission = new Permission(name,permissionGroup.value(),className, methodGenericString);
+      Permission permission = new Permission(name,permissionGroup.value(), methodGenericString);
       PermissionInitService.addPermission(permission);
     }
     return bean;
@@ -48,5 +48,10 @@ public class PermissionPointBeanPostProcessor implements BeanPostProcessor {
       }
     });
     return res;
+  }
+
+  @Override
+  public int getOrder() {
+    return HIGHEST_PRECEDENCE;
   }
 }

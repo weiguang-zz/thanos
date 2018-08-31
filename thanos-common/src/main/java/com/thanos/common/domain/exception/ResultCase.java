@@ -24,6 +24,7 @@ public final class ResultCase {
     biz_constraint_violated,
     upload_io_error,
     entity_absent,
-    internal_error
+    internal_error,
+    permission_deny
   }
 }

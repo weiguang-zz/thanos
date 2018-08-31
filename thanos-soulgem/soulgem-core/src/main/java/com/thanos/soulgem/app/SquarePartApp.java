@@ -27,21 +27,21 @@ public class SquarePartApp {
 
 
   public void save(SaveOrUpdateSquarePart saveOrUpdateSquarePart){
-    check(equipmentRepo.exists(saveOrUpdateSquarePart.getEquipmentId()), "equipmentId not exist");
+    check(equipmentRepo.existsById(saveOrUpdateSquarePart.getEquipmentId()), "equipmentId not exist");
     SquarePart squarePart = saveOrUpdateSquarePart.build();
     squarePartRepo.save(squarePart);
   }
 
   public void update(ObjectId id, SaveOrUpdateSquarePart saveOrUpdateSquarePart){
-    check(squarePartRepo.exists(id), "id not exist");
-    SquarePart squarePart = squarePartRepo.findOne(id);
+    check(squarePartRepo.existsById(id), "id not exist");
+    SquarePart squarePart = squarePartRepo.findById(id).get();
     BeanUtils.copyProperties(saveOrUpdateSquarePart, squarePart);
     squarePartRepo.save(squarePart);
   }
 
   public void delete(ObjectId id){
-    check(squarePartRepo.exists(id), "id not exist");
-    squarePartRepo.delete(id);
+    check(squarePartRepo.existsById(id), "id not exist");
+    squarePartRepo.deleteById(id);
   }
 
   public void deleteAllInEquipment(ObjectId equipmentId){

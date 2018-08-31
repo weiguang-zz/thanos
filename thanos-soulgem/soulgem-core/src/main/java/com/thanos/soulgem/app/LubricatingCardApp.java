@@ -26,21 +26,22 @@ public class LubricatingCardApp {
 
 
   public void save(SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
-    check(equipmentRepo.exists(saveOrUpdateLubricatingCard.getEquipmentId()), "equipmentId not exist");
+
+    check(equipmentRepo.existsById(saveOrUpdateLubricatingCard.getEquipmentId()), "equipmentId not exist");
     LubricatingCard lubricatingCard = saveOrUpdateLubricatingCard.build();
     lubricatingCardRepo.save(lubricatingCard);
   }
 
   public void update(ObjectId id, SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    LubricatingCard lubricatingCard = lubricatingCardRepo.findOne(id);
+    check(lubricatingCardRepo.existsById(id), "id not exist");
+    LubricatingCard lubricatingCard = lubricatingCardRepo.findById(id).get();
     lubricatingCard.merge(saveOrUpdateLubricatingCard);
     lubricatingCardRepo.save(lubricatingCard);
   }
 
   public void delete(ObjectId id){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    lubricatingCardRepo.delete(id);
+    check(lubricatingCardRepo.existsById(id), "id not exist");
+    lubricatingCardRepo.deleteById(id);
   }
 
   /**
@@ -52,8 +53,8 @@ public class LubricatingCardApp {
   }
 
   public LubricatingCard detail(ObjectId id){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    return lubricatingCardRepo.findOne(id);
+    check(lubricatingCardRepo.existsById(id), "id not exist");
+    return lubricatingCardRepo.findById(id).get();
   }
 
   /**
