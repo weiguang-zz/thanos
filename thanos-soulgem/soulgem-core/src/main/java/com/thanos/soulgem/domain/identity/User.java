@@ -65,4 +65,12 @@ public class User extends Aggregate {
     roles.add(role);
   }
 
+  public String password(){
+    return password;
+  }
+
+  public static String defaultPassword(){
+    return DEFAULT_PASSWORD;
+  }
+
 }

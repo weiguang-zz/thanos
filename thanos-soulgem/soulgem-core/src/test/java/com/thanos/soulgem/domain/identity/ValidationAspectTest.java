@@ -1,6 +1,6 @@
 package com.thanos.soulgem.domain.identity;
 
-import com.thanos.common.domain.exception.BusinessException;
+import com.thanos.common.domain.exception.AuthorizationException;
 import com.thanos.soulgem.BaseIntegrationTestConfiguration;
 import com.thanos.soulgem.domain.identity.PermissionPointConfiguration.TestBean;
 import com.thanos.soulgem.domain.identity.ValidationAspectTest.MockDefaultUserConfiguration;
@@ -56,7 +56,7 @@ public class ValidationAspectTest{
     roleRepo.deleteAll();
   }
 
-  @Test(expected = BusinessException.class)
+  @Test(expected = AuthorizationException.class)
   public void testNoPermission(){
     testBean.someMethod("someString");
   }

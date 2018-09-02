@@ -1,7 +1,7 @@
 package com.thanos.soulgem.domain.identity;
 
 import com.thanos.common.domain.DomainService;
-import com.thanos.common.domain.exception.BusinessException;
+import com.thanos.common.domain.exception.AuthorizationException;
 import com.thanos.common.domain.exception.ResultCase.Id;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -38,7 +38,7 @@ public class ValidationAspect {
       String message = String.format("user:%s has no permission to %s", loginedUser.username,
           permissionName);
       log.error(message);
-      throw new BusinessException(Id.permission_deny, message);
+      throw new AuthorizationException(Id.permission_deny, message);
     }
 
   }

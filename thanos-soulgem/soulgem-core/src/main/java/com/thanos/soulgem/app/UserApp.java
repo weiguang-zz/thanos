@@ -37,7 +37,14 @@ public class UserApp {
 
   private void checkUserNameNotExist(String username){
     User user = userRepo.findByUsername(username);
-    BizAssert.check(user==null, "username:{} exists", username);
+    BizAssert.check(user==null, "username:%s exists", username);
+  }
+
+  public User login(String username, String password){
+    User user = userRepo.findByUsername(username);
+    BizAssert.check(user!=null, "username:%s not exists", username);
+    BizAssert.check(password.equals(user.password()), "wrong password");
+    return user;
   }
 
 }

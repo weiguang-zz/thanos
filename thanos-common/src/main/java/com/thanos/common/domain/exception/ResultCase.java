@@ -25,6 +25,7 @@ public final class ResultCase {
     upload_io_error,
     entity_absent,
     internal_error,
-    permission_deny
+    permission_deny,
+    access_deny
   }
 }
