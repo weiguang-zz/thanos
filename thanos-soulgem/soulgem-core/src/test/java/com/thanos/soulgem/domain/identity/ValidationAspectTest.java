@@ -45,7 +45,7 @@ public class ValidationAspectTest{
   public void initializeUser(){
     Company someCompany = new Company("someCompany",null,null);
     companyRepo.save(someCompany);
-    User user = new User(someCompany,someUsername,"someRealName");
+    User user = new User(someCompany,someUsername,"someRealName",null, null);
     userRepo.save(user);
   }
 
@@ -65,7 +65,7 @@ public class ValidationAspectTest{
   public void testHasPermission(){
     User user = userRepo.findByUsername(someUsername);
     Permission permission = permissionRepo.findByName(somePermissionName);
-    Role role = new Role(user.company.id(), "somerole");
+    Role role = new Role(user.company.id(), "somerole", null,null);
     role.assinPermission(permission);
     roleRepo.save(role);
     user.assinRole(role);

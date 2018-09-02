@@ -75,7 +75,7 @@ public class UserLoginTest extends BaseControllerTest{
   private void initializeUser(){
     Company someCompany = new Company("someCompany",null,null);
     companyRepo.save(someCompany);
-    User user = new User(someCompany,someUsername,"someRealName");
+    User user = new User(someCompany,someUsername,"someRealName", null,null);
     userRepo.save(user);
   }
 

@@ -1,7 +1,10 @@
 package com.thanos.soulgem.domain.identity;
 
 import com.thanos.common.domain.Aggregate;
+import com.thanos.soulgem.domain.basic.Menu;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
@@ -20,15 +23,41 @@ public class Role extends Aggregate{
 
   String name;
 
-  List<Permission> permissions = new ArrayList<>();
+  String remark;
 
-  public Role(ObjectId companyId, String name) {
+  String createdBy;
+
+  Date createdAt;
+
+  List<Permission> permissions = new ArrayList<>();
+  List<Menu> menus = Collections.emptyList();
+
+  public Role(ObjectId companyId, String name,String createdBy, String remark) {
     this.name = name;
     this.companyId = companyId;
+    this.createdBy = createdBy;
+    this.remark = remark;
+    this.createdAt = new Date();
   }
 
   public void assinPermission(Permission permission){
     permissions.add(permission);
+  }
+
+  public void assginPermissions(List<Permission> permissions){
+    this.permissions = permissions;
+  }
+
+  public void assginMenus(List<Menu> menus){
+    this.menus = menus;
+  }
+
+  public void updateName(String name){
+    this.name = name;
+  }
+
+  public void updateRemark(String remark){
+    this.remark = remark;
   }
 
   public boolean hasPermission(String methodGenericString){

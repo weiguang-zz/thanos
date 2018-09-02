@@ -1,7 +1,10 @@
 package com.thanos.soulgem.domain.identity.command;
 
 import com.thanos.common.domain.Validator;
+import java.util.Collections;
+import java.util.List;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -11,7 +14,7 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class UserSignUp extends Validator<UserSignUp> {
+public class UserAdd extends Validator<UserAdd> {
   @NotNull
   ObjectId companyId;
 
@@ -21,5 +24,11 @@ public class UserSignUp extends Validator<UserSignUp> {
 
   @NotNull
   String realname;
+  @Pattern(regexp = "^\\d+$", message = "手机号非法")
+  String mobile;
+
+  ObjectId departmentId;
+
+  List<ObjectId> roleIds = Collections.emptyList();
 
 }

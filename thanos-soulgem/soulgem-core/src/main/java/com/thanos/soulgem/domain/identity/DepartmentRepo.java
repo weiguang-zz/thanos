@@ -4,13 +4,15 @@ import org.bson.types.ObjectId;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 /**
- * Create by zhangzheng on 7/21/18
+ * Create by zhangzheng on 9/2/18
  * Email:zhangzheng@youzan.com
  */
-public interface RoleRepo extends MongoRepository<Role, ObjectId> {
+@Repository
+public interface DepartmentRepo extends MongoRepository<Department,ObjectId> {
 
-  Page<Role> findByCompanyId(ObjectId companyId, Pageable pageable);
+  Page<Department> findByCompanyId(ObjectId companyId, Pageable pageable);
 
 }
