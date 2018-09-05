@@ -1,5 +1,6 @@
 package com.thanos.soulgem.domain.identity.command;
 
+import com.thanos.common.domain.Validator;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -9,7 +10,7 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class DepartmentAdd {
+public class DepartmentSave extends Validator<DepartmentSave> {
   @NotNull
   ObjectId companyId;
 

@@ -1,7 +1,7 @@
 package com.thanos.soulgem.domain.basic;
 
 import com.thanos.common.domain.Aggregate;
-import com.thanos.soulgem.domain.basic.command.SaveOrUpdateLubricatingCard;
+import com.thanos.soulgem.domain.basic.command.LubricatingCardUpdate;
 import org.bson.types.ObjectId;
 import org.springframework.beans.BeanUtils;
 
@@ -21,8 +21,8 @@ public class LubricatingCard extends Aggregate {
   Double lubricatingPeriod;//润滑周期
   Double temperature;//标准温度
 
-  public void merge(SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
-    BeanUtils.copyProperties(saveOrUpdateLubricatingCard, this);
+  public void merge(LubricatingCardUpdate update){
+    BeanUtils.copyProperties(update, this);
   }
 
   public ObjectId equipmentId(){

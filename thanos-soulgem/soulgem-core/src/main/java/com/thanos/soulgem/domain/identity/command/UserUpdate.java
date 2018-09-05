@@ -1,5 +1,6 @@
 package com.thanos.soulgem.domain.identity.command;
 
+import com.thanos.common.domain.Validator;
 import java.util.Collections;
 import java.util.List;
 import javax.validation.constraints.NotNull;
@@ -12,7 +13,7 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class UserUpdate {
+public class UserUpdate extends Validator<UserUpdate> {
 
   @NotNull
   String realname;

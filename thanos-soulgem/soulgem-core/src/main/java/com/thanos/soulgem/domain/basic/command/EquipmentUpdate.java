@@ -1,7 +1,6 @@
 package com.thanos.soulgem.domain.basic.command;
 
 import com.thanos.common.domain.Validator;
-import com.thanos.soulgem.domain.basic.Equipment;
 import com.thanos.soulgem.domain.basic.EquipmentCategory;
 import com.thanos.soulgem.domain.basic.EquipmentParam;
 import io.swagger.annotations.ApiModel;
@@ -17,7 +16,7 @@ import org.bson.types.ObjectId;
  */
 @Data
 @ApiModel
-public class SaveOrUpdateEquipment extends Validator<SaveOrUpdateEquipment> {
+public class EquipmentUpdate extends Validator<EquipmentUpdate> {
 
   @NotNull
   ObjectId companyId;
@@ -32,8 +31,4 @@ public class SaveOrUpdateEquipment extends Validator<SaveOrUpdateEquipment> {
   @ApiModelProperty(hidden = true)
   EquipmentCategory category;
 
-  public Equipment build(){
-    Equipment equipment = new Equipment(companyId, name, category, useTo, params);
-    return equipment;
-  }
 }

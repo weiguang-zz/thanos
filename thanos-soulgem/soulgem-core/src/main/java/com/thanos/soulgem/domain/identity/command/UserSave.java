@@ -14,7 +14,7 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class UserAdd extends Validator<UserAdd> {
+public class UserSave extends Validator<UserSave> {
   @NotNull
   ObjectId companyId;
 

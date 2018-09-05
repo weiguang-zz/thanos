@@ -1,7 +1,7 @@
 package com.thanos.soulgem.domain.basic;
 
 import com.thanos.common.domain.Aggregate;
-import com.thanos.soulgem.domain.basic.command.SaveOrUpdateEquipment;
+import com.thanos.soulgem.domain.basic.command.EquipmentUpdate;
 import java.util.List;
 import org.bson.types.ObjectId;
 
@@ -28,13 +28,12 @@ public class Equipment extends Aggregate{
 
   /**
    * 合并修改
-   * @param saveOrUpdateEquipment
    */
-  public void merge(SaveOrUpdateEquipment saveOrUpdateEquipment){
-    this.name = saveOrUpdateEquipment.getName();
-    this.category = saveOrUpdateEquipment.getCategory();
-    this.useTo = saveOrUpdateEquipment.getUseTo();
-    this.params = saveOrUpdateEquipment.getParams();
+  public void merge(EquipmentUpdate equipmentUpdate){
+    this.name = equipmentUpdate.getName();
+    this.category = equipmentUpdate.getCategory();
+    this.useTo = equipmentUpdate.getUseTo();
+    this.params = equipmentUpdate.getParams();
   }
 
   public void addParam(EquipmentParam param){

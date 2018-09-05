@@ -1,5 +1,6 @@
 package com.thanos.soulgem.domain.identity.command;
 
+import com.thanos.common.domain.Validator;
 import com.thanos.soulgem.domain.basic.Menu;
 import com.thanos.soulgem.domain.identity.Permission;
 import java.util.Collections;
@@ -12,7 +13,7 @@ import lombok.Data;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class RoleUpdate {
+public class RoleUpdate extends Validator<RoleUpdate> {
   @NotNull
   String name;
 

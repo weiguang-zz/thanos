@@ -13,7 +13,7 @@ import com.thanos.soulgem.domain.identity.RoleRepo;
 import com.thanos.soulgem.domain.identity.User;
 import com.thanos.soulgem.domain.identity.UserHolder;
 import com.thanos.soulgem.domain.identity.UserRepo;
-import com.thanos.soulgem.domain.identity.command.UserAdd;
+import com.thanos.soulgem.domain.identity.command.UserSave;
 import com.thanos.soulgem.domain.identity.command.UserUpdate;
 import java.util.Collections;
 import java.util.List;
@@ -46,17 +46,17 @@ public class UserApp {
   UserHolder userHolder;
 
   @PermissionPoint(name = "新增用户", group = PermissionGroup.System)
-  public void save(UserAdd userAdd){
-    Company company = companyRepo.findById(userAdd.getCompanyId()).get();
+  public void save(UserSave userSave){
+    Company company = companyRepo.findById(userSave.getCompanyId()).get();
     BizAssert.check(company!=null, "company不存在");
-    checkUserNameNotExist(userAdd.getUsername());
-    User user = new User(company, userAdd.getUsername(), userAdd.getRealname()
-        ,userAdd.getMobile(), userHolder.getUser().realname());
-    for(ObjectId roleId:userAdd.getRoleIds()){
+    checkUserNameNotExist(userSave.getUsername());
+    User user = new User(company, userSave.getUsername(), userSave.getRealname()
+        , userSave.getMobile(), userHolder.getUser().realname());
+    for(ObjectId roleId: userSave.getRoleIds()){
       user.assinRole(roleRepo.findById(roleId).get());
     }
-    if(userAdd.getDepartmentId()!=null){
-      user.assginDepartment(departmentRepo.findById(userAdd.getDepartmentId()).get());
+    if(userSave.getDepartmentId()!=null){
+      user.assginDepartment(departmentRepo.findById(userSave.getDepartmentId()).get());
     }
     userRepo.save(user);
   }

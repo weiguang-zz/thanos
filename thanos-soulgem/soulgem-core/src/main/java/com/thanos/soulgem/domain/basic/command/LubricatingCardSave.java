@@ -13,7 +13,7 @@ import org.springframework.beans.BeanUtils;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class SaveOrUpdateLubricatingCard extends Validator<SaveOrUpdateLubricatingCard> {
+public class LubricatingCardSave extends Validator<LubricatingCardSave> {
 
   @NotNull
   ObjectId equipmentId;

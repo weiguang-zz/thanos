@@ -5,7 +5,7 @@ import com.thanos.soulgem.domain.identity.Department;
 import com.thanos.soulgem.domain.identity.DepartmentRepo;
 import com.thanos.soulgem.domain.identity.PermissionGroup;
 import com.thanos.soulgem.domain.identity.PermissionPoint;
-import com.thanos.soulgem.domain.identity.command.DepartmentAdd;
+import com.thanos.soulgem.domain.identity.command.DepartmentSave;
 import com.thanos.soulgem.domain.identity.command.DepartmentUpdate;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class DepartmentApp {
   DepartmentRepo departmentRepo;
 
   @PermissionPoint(name = "新增部门", group = PermissionGroup.System)
-  public void save(DepartmentAdd add){
+  public void save(DepartmentSave add){
     Department department = new Department(add.getCompanyId(), add.getName(),
         add.getTelephone(),add.getRemark());
     if(add.getParent()!=null){

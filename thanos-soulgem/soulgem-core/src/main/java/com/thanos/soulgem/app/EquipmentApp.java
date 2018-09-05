@@ -7,7 +7,10 @@ import com.thanos.soulgem.domain.basic.EquipmentCategoryRepo;
 import com.thanos.soulgem.domain.basic.EquipmentRepo;
 import com.thanos.soulgem.domain.basic.LubricatingCardRepo;
 import com.thanos.soulgem.domain.basic.SquarePartRepo;
-import com.thanos.soulgem.domain.basic.command.SaveOrUpdateEquipment;
+import com.thanos.soulgem.domain.basic.command.EquipmentSave;
+import com.thanos.soulgem.domain.basic.command.EquipmentUpdate;
+import com.thanos.soulgem.domain.identity.PermissionGroup;
+import com.thanos.soulgem.domain.identity.PermissionPoint;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,19 +33,21 @@ public class EquipmentApp {
   EquipmentCategoryRepo equipmentCategoryRepo;
 
   /**
-   * 新增或者修改设备，跟repo的save方法统一
-   * @param saveOrUpdateEquipment
+   * 新增设备
    */
-  public void save(SaveOrUpdateEquipment saveOrUpdateEquipment){
-    saveOrUpdateEquipment.setCategory(equipmentCategoryRepo.findById(saveOrUpdateEquipment.getCategoryId()).get());
-    Equipment equipment = saveOrUpdateEquipment.build();
+  @PermissionPoint(name = "新增设备", group = PermissionGroup.Equipment)
+  public void save(EquipmentSave equipmentSave){
+    equipmentSave.setCategory(equipmentCategoryRepo.findById(equipmentSave.getCategoryId()).get());
+    Equipment equipment = equipmentSave.build();
     equipmentRepo.save(equipment);
   }
 
-  public void update(ObjectId id, SaveOrUpdateEquipment saveOrUpdateEquipment){
+  @PermissionPoint(name = "更新设备", group = PermissionGroup.Equipment)
+  public void update(ObjectId id, EquipmentUpdate equipmentUpdate){
     check(equipmentRepo.existsById(id), "id not exists");
     Equipment equipment = equipmentRepo.findById(id).get();
-    equipment.merge(saveOrUpdateEquipment);
+    equipmentUpdate.setCategory(equipmentCategoryRepo.findById(equipmentUpdate.getCategoryId()).get());
+    equipment.merge(equipmentUpdate);
     equipmentRepo.save(equipment);
   }
 
@@ -50,6 +55,7 @@ public class EquipmentApp {
    * 删除设备
    * @param id
    */
+  @PermissionPoint(name = "删除设备", group = PermissionGroup.Equipment)
   public void delete(ObjectId id){
     check(equipmentRepo.existsById(id), "id not exists");
     equipmentRepo.deleteById(id);

@@ -1,0 +1,36 @@
+[
+  {
+    "name":"首页",
+    "icon":"",
+    "path":"",
+    "children":[
+      {
+        "name":"一线区域",
+        "icon":"",
+        "children": [
+          {
+            "name":"一线烧成",
+            "icon":"",
+            "path":"/somepath",
+            "children":""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name":"设备管理",
+    "children":[
+      {
+        "name":"设备台账",
+        "path":"/somepath",
+        "icon":""
+      },
+      {
+        "name":"设备实例",
+        "path":"/",
+        "icon":""
+      }
+    ]
+  }
+]

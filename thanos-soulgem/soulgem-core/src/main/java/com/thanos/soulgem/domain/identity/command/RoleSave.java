@@ -1,5 +1,6 @@
 package com.thanos.soulgem.domain.identity.command;
 
+import com.thanos.common.domain.Validator;
 import com.thanos.soulgem.domain.basic.Menu;
 import com.thanos.soulgem.domain.identity.Permission;
 import java.util.Collections;
@@ -13,7 +14,7 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class RoleAdd {
+public class RoleSave extends Validator<RoleSave> {
   @NotNull
   ObjectId companyId;
   @NotNull

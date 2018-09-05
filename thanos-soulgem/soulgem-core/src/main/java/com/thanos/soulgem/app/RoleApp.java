@@ -1,7 +1,6 @@
 package com.thanos.soulgem.app;
 
 import com.thanos.common.domain.exception.BizAssert;
-import com.thanos.soulgem.domain.basic.Menu;
 import com.thanos.soulgem.domain.basic.MenuRepo;
 import com.thanos.soulgem.domain.identity.Permission;
 import com.thanos.soulgem.domain.identity.PermissionGroup;
@@ -9,7 +8,7 @@ import com.thanos.soulgem.domain.identity.PermissionPoint;
 import com.thanos.soulgem.domain.identity.PermissionRepo;
 import com.thanos.soulgem.domain.identity.Role;
 import com.thanos.soulgem.domain.identity.RoleRepo;
-import com.thanos.soulgem.domain.identity.command.RoleAdd;
+import com.thanos.soulgem.domain.identity.command.RoleSave;
 import com.thanos.soulgem.domain.identity.command.RoleUpdate;
 import java.util.List;
 import org.bson.types.ObjectId;
@@ -33,10 +32,11 @@ public class RoleApp {
   MenuRepo menuRepo;
 
   @PermissionPoint(name = "创建角色", group = PermissionGroup.System)
-  public void save(RoleAdd roleAdd){
-    Role role = new Role(roleAdd.getCompanyId(), roleAdd.getName(),roleAdd.getCreatedBy(), roleAdd.getRemark());
-    role.assginPermissions(roleAdd.getPermissions());
-    role.assginMenus(roleAdd.getMenus());
+  public void save(RoleSave roleSave){
+    Role role = new Role(roleSave.getCompanyId(), roleSave.getName(), roleSave.getCreatedBy(), roleSave
+        .getRemark());
+    role.assginPermissions(roleSave.getPermissions());
+    role.assginMenus(roleSave.getMenus());
     roleRepo.save(role);
   }
   @PermissionPoint(name = "更新角色", group = PermissionGroup.System)
@@ -63,12 +63,6 @@ public class RoleApp {
   public List<Permission> allPermissions(){
     return permissionRepo.findAll();
   }
-
-  //查询所有的菜单
-  public List<Menu> allMenus(){
-    return menuRepo.findAll();
-  }
-
 
 
 }
