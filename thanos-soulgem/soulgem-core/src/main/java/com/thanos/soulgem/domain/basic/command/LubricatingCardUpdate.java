@@ -1,12 +1,13 @@
 package com.thanos.soulgem.domain.basic.command;
 
 import com.thanos.common.domain.Validator;
+import com.thanos.common.utils.BeanUtils;
 import com.thanos.soulgem.domain.basic.LubricatingCard;
+import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import org.bson.types.ObjectId;
-import org.springframework.beans.BeanUtils;
 
 /**
  * Create by zhangzheng on 8/19/18
@@ -38,6 +39,8 @@ public class LubricatingCardUpdate extends Validator<LubricatingCardUpdate> {
   @NotNull
   @Min(0)
   Double temperature;//标准温度
+  @NotNull @ApiModelProperty("标准油量")
+  Double standardOilAmount;//标准油量
 
   public LubricatingCard build(){
     LubricatingCard lubricatingCard = new LubricatingCard();

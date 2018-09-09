@@ -15,4 +15,10 @@ public class EquipmentParam {
     this.name = name;
     this.value = value;
   }
+
+  //for deSerialize
+  public EquipmentParam(){
+
+  }
+
 }

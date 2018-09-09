@@ -2,6 +2,7 @@ package com.thanos.soulgem.app;
 
 import static com.thanos.common.domain.exception.BizAssert.check;
 
+import com.thanos.common.utils.BeanUtils;
 import com.thanos.soulgem.domain.basic.EquipmentRepo;
 import com.thanos.soulgem.domain.basic.SquarePart;
 import com.thanos.soulgem.domain.basic.SquarePartRepo;
@@ -10,7 +11,6 @@ import com.thanos.soulgem.domain.basic.command.SquarePartUpdate;
 import com.thanos.soulgem.domain.identity.PermissionGroup;
 import com.thanos.soulgem.domain.identity.PermissionPoint;
 import org.bson.types.ObjectId;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

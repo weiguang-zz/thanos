@@ -4,6 +4,7 @@ import com.thanos.common.domain.Validator;
 import com.thanos.soulgem.domain.basic.Equipment;
 import com.thanos.soulgem.domain.basic.EquipmentParam;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -26,11 +27,11 @@ public class EquipmentSave extends Validator<EquipmentSave> {
   String category;
   @NotNull
   String useTo;
-  @NotNull
+  @NotNull @ApiModelProperty("规格型号")
   String specification;
-  @NotNull
+  @NotNull @ApiModelProperty("设备编号")
   Long number;//设备编号
-  @NotNull
+  @NotNull @ApiModelProperty("厂家")
   String vendor; //厂家
 
   List<EquipmentParam> params;

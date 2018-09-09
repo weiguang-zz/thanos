@@ -73,10 +73,10 @@ params:List&lt;EquipmentParams&gt; 设备参数
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="248.0" width="315.66666666666663" x="613.0" y="-62.0"/>
+          <y:Geometry height="257.23929788316354" width="341.1320447834164" x="613.0" y="-62.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="190.05615234375" x="62.805257161458314" y="3.0">SquartPartInstance&lt;聚合根&gt;<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="190.05615234375" x="75.5379462198332" y="3.0">SquartPartInstance&lt;聚合根&gt;<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -220,10 +220,10 @@ temperature:Double 标准温度
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="152.0" width="321.0" x="613.0" y="202.0"/>
+          <y:Geometry height="152.0" width="341.1320447834164" x="613.0" y="216.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="186.03173828125" x="67.484130859375" y="3.0">LubricatingRecord&lt;聚合根&gt;<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="186.03173828125" x="77.5501532510832" y="3.0">LubricatingRecord&lt;聚合根&gt;<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -248,10 +248,10 @@ remark:String 备注
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="390.36390061239763" width="356.22033212688217" x="-1.0" y="391.0"/>
+          <y:Geometry height="390.36390061239763" width="404.7266460134908" x="-1.0" y="391.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.86376953125" x="131.17828129781608" y="3.0">Ticket(聚合根)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.86376953125" x="155.4314382411204" y="3.0">Ticket(聚合根)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -595,7 +595,6 @@ isProcessed:Boolean 是否处理了
     </node>
     <node id="n21">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="154.8512147115025" width="173.43439746424156" x="431.7782550105659" y="1195.7859291472196"/>
@@ -621,7 +620,6 @@ isAccepted:Boolean 是否通过</y:AttributeLabel>
     </node>
     <node id="n22">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="213.31812735227504" width="343.95155767781944" x="46.11348847067663" y="1550.2330447958009"/>
@@ -652,7 +650,6 @@ items:List&lt;ComparisonItem&gt; 比价单里的备件详情
     </node>
     <node id="n23">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="112.9860307162985" width="220.8235135484723" x="441.17334743472566" y="1577.6153624943315"/>
@@ -677,7 +674,6 @@ quotes:List&lt;Quote&gt; 报价</y:AttributeLabel>
     </node>
     <node id="n24">
       <data key="d4"/>
-      <data key="d5"/>
       <data key="d6">
         <y:UMLClassNode>
           <y:Geometry height="112.98603071629873" width="173.43439746424156" x="684.2256714186547" y="1577.6153624943313"/>

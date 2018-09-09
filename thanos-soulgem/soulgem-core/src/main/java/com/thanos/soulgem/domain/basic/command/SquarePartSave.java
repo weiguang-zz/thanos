@@ -1,11 +1,12 @@
 package com.thanos.soulgem.domain.basic.command;
 
 import com.thanos.common.domain.Validator;
+import com.thanos.common.utils.BeanUtils;
 import com.thanos.soulgem.domain.basic.SquarePart;
+import io.swagger.annotations.ApiModelProperty;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import org.bson.types.ObjectId;
-import org.springframework.beans.BeanUtils;
 
 /**
  * Create by zhangzheng on 8/19/18
@@ -14,20 +15,23 @@ import org.springframework.beans.BeanUtils;
 @Data
 public class SquarePartSave extends Validator<SquarePartSave> {
 
-  @NotNull
   ObjectId equipmentId;
   @NotNull
   String name;
-  @NotNull
+  @NotNull @ApiModelProperty("规格型号")
   String specifications;//规格型号
-  @NotNull
+  @NotNull @ApiModelProperty("安装位置")
   String installLocation;
-  @NotNull
+  @NotNull @ApiModelProperty("单位")
   String unit;
-  @NotNull
+  @NotNull @ApiModelProperty("装机数量")
   Long initialAmount;//装机数量
-  @NotNull
+  @NotNull @ApiModelProperty("技术参数")
   String technicalParameters;//技术参数
+  @ApiModelProperty("技术要求")
+  String technicalRequirement;
+  @ApiModelProperty("风险储备")
+  Long riskyReserve;
 
   String others;
 

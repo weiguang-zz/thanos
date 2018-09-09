@@ -17,6 +17,8 @@ public class SquarePart extends Aggregate {
   Long initialAmount;//装机数量
   String technicalParameters;//技术参数
   String others;
+  String technicalRequirement;
+  Long riskyReserve;
 
   public ObjectId equipmentId() {
     return equipmentId;

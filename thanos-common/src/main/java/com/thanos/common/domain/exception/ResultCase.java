@@ -26,6 +26,7 @@ public final class ResultCase {
     entity_absent,
     internal_error,
     permission_deny,
-    access_deny
+    access_deny,
+    application_error
   }
 }

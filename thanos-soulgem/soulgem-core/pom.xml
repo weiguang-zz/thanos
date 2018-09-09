@@ -26,12 +26,6 @@
       <scope>test</scope>
       <version>2.1.1</version>
     </dependency>
-    <!-- validator -->
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-validator</artifactId>
-      <version>5.2.4.Final</version>
-    </dependency>
 
     <dependency>
       <groupId>io.springfox</groupId>

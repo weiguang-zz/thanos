@@ -1,6 +1,5 @@
 package com.thanos.soulgem.rest.controller;
 
-import static com.thanos.soulgem.rest.check.InputAssert.check;
 import static com.thanos.soulgem.rest.check.InputAssert.notNull;
 
 import com.thanos.soulgem.app.EquipmentApp;
@@ -65,14 +64,14 @@ public class EquipmentController {
   @DeleteMapping("/{id}")
   @ApiOperation(value = "删除设备")
   public void delete(@PathVariable("id")ObjectId id){
-    check(id!=null, "id is null");
+    notNull(id, "id");
     equipmentApp.delete(id);
   }
 
   @GetMapping("/{id}")
   @ApiOperation(value = "查询设备详情")
   public Equipment detail(@PathVariable("id")ObjectId id){
-    check(id!=null, "id is null");
+    notNull(id, "id");
     return equipmentApp.detail(id);
   }
 
@@ -85,7 +84,7 @@ public class EquipmentController {
   @PostMapping("/{id}/squareParts")
   @ApiOperation(value = "新增设备下的备件")
   public void saveSquarePart(@PathVariable("id") ObjectId id, @RequestBody SquarePartSave save){
-    check(id!=null, "equipment id must not be null");
+    InputAssert.notNull(id, "id");
     save.setEquipmentId(id);
     save.validate();
     squarePartApp.save(save);
