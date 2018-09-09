@@ -17,7 +17,6 @@ import org.bson.types.ObjectId;
 @Data
 @ApiModel
 public class EquipmentSave extends Validator<EquipmentSave> {
-  //todo 增加参数
 
   @NotNull
   ObjectId companyId;
