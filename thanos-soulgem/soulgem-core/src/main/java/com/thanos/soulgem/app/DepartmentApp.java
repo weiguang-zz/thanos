@@ -56,5 +56,10 @@ public class DepartmentApp {
     return departmentRepo.findByCompanyId(companyId, pageable);
   }
 
+  public Department detail(ObjectId id){
+    BizAssert.check(departmentRepo.existsById(id), "department id not exist");
+    return departmentRepo.findById(id).get();
+  }
+
 
 }

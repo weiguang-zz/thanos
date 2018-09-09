@@ -1,10 +1,8 @@
 package com.thanos.soulgem.domain.basic.command;
 
 import com.thanos.common.domain.Validator;
-import com.thanos.soulgem.domain.basic.EquipmentCategory;
 import com.thanos.soulgem.domain.basic.EquipmentParam;
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
@@ -23,12 +21,16 @@ public class EquipmentUpdate extends Validator<EquipmentUpdate> {
   @NotNull
   String name;
   @NotNull
-  ObjectId categoryId;
+  String category;
   @NotNull
   String useTo;
+  @NotNull
+  String specification;
+  @NotNull
+  Long number;//设备编号
+  @NotNull
+  String vendor; //厂家
 
   List<EquipmentParam> params;
-  @ApiModelProperty(hidden = true)
-  EquipmentCategory category;
 
 }

@@ -50,9 +50,9 @@ public class EquipmentController {
 
   @PostMapping
   @ApiOperation(value = "新增设备")
-  public void save(@RequestBody EquipmentSave save){
+  public Equipment save(@RequestBody EquipmentSave save){
     save.validate();
-    equipmentApp.save(save);
+    return equipmentApp.save(save);
   }
   @PutMapping("/{id}")
   @ApiOperation(value = "更新设备")
@@ -82,7 +82,7 @@ public class EquipmentController {
     return Page.of(equipmentApp.list(pageable));
   }
 
-  @PostMapping("/{id}/squartParts")
+  @PostMapping("/{id}/squareParts")
   @ApiOperation(value = "新增设备下的备件")
   public void saveSquarePart(@PathVariable("id") ObjectId id, @RequestBody SquarePartSave save){
     check(id!=null, "equipment id must not be null");
@@ -105,14 +105,15 @@ public class EquipmentController {
       @PathVariable("sid")ObjectId squarePartId){
     squarePartApp.delete(squarePartId);
   }
-  @GetMapping("/{id}/squartParts")
+
+  @GetMapping("/{id}/squareParts")
   @ApiOperation(value = "查询设备备件目录")
   public Page<SquarePart> squareParts(@PathVariable("id")ObjectId equipmentId, @PageableDefault Pageable pageable){
     notNull(equipmentId,"equipmentId");
     return Page.of(squarePartApp.listAllInEquipment(equipmentId, pageable));
   }
 
-  @PostMapping("/{id}/lubricatingCards")
+  @PostMapping("/{eid}/lubricatingCards")
   @ApiOperation(value = "新增润滑卡片")
   public void saveLubricatingCard(@PathVariable("eid")ObjectId equipmentId,
       @RequestBody LubricatingCardSave lubricatingCardSave){

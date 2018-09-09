@@ -13,17 +13,25 @@ public class Equipment extends Aggregate{
 
   ObjectId companyId;
   String name;
-  EquipmentCategory category;
+  String category;
   String useTo;
   List<EquipmentParam> params;
+  String specification;
+  Long number;//设备编号
+  String vendor; //厂家
+
 
   public Equipment(ObjectId companyId, String name,
-      EquipmentCategory category, String useTo, List<EquipmentParam> params) {
+      String category, String useTo, List<EquipmentParam> params,String specification,
+      Long number, String vendor) {
     this.companyId = companyId;
     this.name = name;
     this.category = category;
     this.useTo = useTo;
     this.params = params;
+    this.specification = specification;
+    this.number = number;
+    this.vendor = vendor;
   }
 
   /**
@@ -34,6 +42,9 @@ public class Equipment extends Aggregate{
     this.category = equipmentUpdate.getCategory();
     this.useTo = equipmentUpdate.getUseTo();
     this.params = equipmentUpdate.getParams();
+    this.vendor = equipmentUpdate.getVendor();
+    this.number = equipmentUpdate.getNumber();
+    this.specification = equipmentUpdate.getSpecification();
   }
 
   public void addParam(EquipmentParam param){

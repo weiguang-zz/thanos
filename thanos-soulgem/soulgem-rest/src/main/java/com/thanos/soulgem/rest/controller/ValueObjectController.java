@@ -1,7 +1,9 @@
 package com.thanos.soulgem.rest.controller;
 
+import com.thanos.soulgem.app.EquipmentApp;
 import com.thanos.soulgem.app.MenuApp;
 import com.thanos.soulgem.app.RoleApp;
+import com.thanos.soulgem.domain.basic.EquipmentCategory;
 import com.thanos.soulgem.domain.basic.Menu;
 import com.thanos.soulgem.domain.identity.Permission;
 import java.util.List;
@@ -20,6 +22,8 @@ public class ValueObjectController {
   RoleApp roleApp;
   @Autowired
   MenuApp menuApp;
+  @Autowired
+  EquipmentApp equipmentApp;
 
   @GetMapping("/permissions")
   public List<Permission> allPermissions(){
@@ -34,6 +38,11 @@ public class ValueObjectController {
   @PutMapping("/menus")
   public void updateAllMenus(List<Menu> menus){
     menuApp.update(menus);
+  }
+
+  @GetMapping("/categories")
+  public List<EquipmentCategory> categories(){
+     return equipmentApp.categories();
   }
 
 

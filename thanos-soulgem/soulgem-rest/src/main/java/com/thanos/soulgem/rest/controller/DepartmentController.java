@@ -54,5 +54,11 @@ public class DepartmentController {
     departmentApp.delete(departmentId);
   }
 
+  @GetMapping("/{id}")
+  public Department detail(@PathVariable("id")ObjectId id){
+    InputAssert.notNull(id, "id");
+    return departmentApp.detail(id);
+  }
+
 
 }

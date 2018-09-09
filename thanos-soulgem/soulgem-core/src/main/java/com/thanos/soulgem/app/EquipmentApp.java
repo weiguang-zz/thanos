@@ -3,6 +3,7 @@ package com.thanos.soulgem.app;
 import static com.thanos.common.domain.exception.BizAssert.check;
 
 import com.thanos.soulgem.domain.basic.Equipment;
+import com.thanos.soulgem.domain.basic.EquipmentCategory;
 import com.thanos.soulgem.domain.basic.EquipmentCategoryRepo;
 import com.thanos.soulgem.domain.basic.EquipmentRepo;
 import com.thanos.soulgem.domain.basic.LubricatingCardRepo;
@@ -11,6 +12,7 @@ import com.thanos.soulgem.domain.basic.command.EquipmentSave;
 import com.thanos.soulgem.domain.basic.command.EquipmentUpdate;
 import com.thanos.soulgem.domain.identity.PermissionGroup;
 import com.thanos.soulgem.domain.identity.PermissionPoint;
+import java.util.List;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -36,17 +38,15 @@ public class EquipmentApp {
    * 新增设备
    */
   @PermissionPoint(name = "新增设备", group = PermissionGroup.Equipment)
-  public void save(EquipmentSave equipmentSave){
-    equipmentSave.setCategory(equipmentCategoryRepo.findById(equipmentSave.getCategoryId()).get());
+  public Equipment save(EquipmentSave equipmentSave){
     Equipment equipment = equipmentSave.build();
-    equipmentRepo.save(equipment);
+    return equipmentRepo.save(equipment);
   }
 
   @PermissionPoint(name = "更新设备", group = PermissionGroup.Equipment)
   public void update(ObjectId id, EquipmentUpdate equipmentUpdate){
     check(equipmentRepo.existsById(id), "id not exists");
     Equipment equipment = equipmentRepo.findById(id).get();
-    equipmentUpdate.setCategory(equipmentCategoryRepo.findById(equipmentUpdate.getCategoryId()).get());
     equipment.merge(equipmentUpdate);
     equipmentRepo.save(equipment);
   }
@@ -70,6 +70,10 @@ public class EquipmentApp {
 
   public Page<Equipment> list(Pageable pageable){
     return equipmentRepo.findAll(pageable);
+  }
+
+  public List<EquipmentCategory> categories(){
+    return equipmentCategoryRepo.findAll();
   }
 
 }

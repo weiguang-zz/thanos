@@ -11,13 +11,12 @@ import org.springframework.context.annotation.Profile;
  * Email:zhangzheng@youzan.com
  */
 @Configuration
-@Profile("auth")
 public class WebContextConfiguration {
   @Bean
+  @Profile("auth")
   public FilterRegistrationBean userAccessFilter() {
     FilterRegistrationBean filter = new FilterRegistrationBean();
     filter.setFilter(new UserAccessFilter());
-    filter.addUrlPatterns();
     filter.addUrlPatterns("/*");
     return filter;
   }
