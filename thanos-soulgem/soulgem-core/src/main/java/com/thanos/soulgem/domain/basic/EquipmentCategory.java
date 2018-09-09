@@ -1,17 +1,18 @@
 package com.thanos.soulgem.domain.basic;
 
-import com.thanos.common.domain.Aggregate;
-import org.bson.types.ObjectId;
+import com.thanos.common.domain.ValueObject;
+import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Create by zhangzheng on 8/19/18
  * Email:zhangzheng@youzan.com
  */
-
-public class EquipmentCategory extends Aggregate{
+@ValueObject
+@Document
+public class EquipmentCategory{
   //分类名称
   String name;
-  //父级目录
-  ObjectId parent;
+  List<EquipmentCategory> children;
 
 }

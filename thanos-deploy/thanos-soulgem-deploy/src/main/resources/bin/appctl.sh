@@ -23,7 +23,7 @@
 #       --- $app-xxx.jar
 #
 
-APP_NAME=maxim-agent
+APP_NAME=thanos-soulgem
 APP_PORT=8082
 
 

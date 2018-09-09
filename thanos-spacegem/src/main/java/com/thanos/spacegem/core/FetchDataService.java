@@ -1,6 +1,6 @@
 package com.thanos.spacegem.core;
 
-import com.thanos.common.domain.RealtimeData;
+import com.thanos.common.domain.RealTimeData;
 
 import java.util.List;
 
@@ -16,5 +16,5 @@ public interface FetchDataService {
    * 获取监控工厂返回的数据
    * @return
    */
-  List<RealtimeData> fetch();
+  List<RealTimeData> fetch();
 }

@@ -1,7 +1,7 @@
 package com.thanos.spacegem.core;
 
 
-import com.thanos.common.domain.RealtimeData;
+import com.thanos.common.domain.RealTimeData;
 
 import java.util.List;
 import java.util.Map;

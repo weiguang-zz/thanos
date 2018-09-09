@@ -22,9 +22,8 @@
     <dependency>
       <groupId>com.thanos</groupId>
       <artifactId>thanos-common</artifactId>
-      <version>${project.version}</version>
+        <version>${project.version}</version>
     </dependency>
   </dependencies>
-
 
 </project>

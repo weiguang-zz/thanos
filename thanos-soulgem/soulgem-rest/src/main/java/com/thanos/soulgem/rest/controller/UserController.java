@@ -2,7 +2,7 @@ package com.thanos.soulgem.rest.controller;
 
 import com.thanos.soulgem.app.UserApp;
 import com.thanos.soulgem.domain.identity.User;
-import com.thanos.soulgem.domain.identity.command.UserSignUp;
+import com.thanos.soulgem.domain.identity.command.UserSave;
 import io.swagger.annotations.ApiOperation;
 import javax.annotation.Resource;
 import org.bson.types.ObjectId;
@@ -26,9 +26,9 @@ public class UserController {
 
   @PostMapping
   @ApiOperation(value = "新增用户")
-  public void save(@RequestBody UserSignUp userSignUp){
-    userSignUp.validate();
-    userApp.save(userSignUp);
+  public void save(@RequestBody UserSave userSave){
+    userSave.validate();
+    userApp.save(userSave);
   }
 
   @GetMapping("/{id}")
@@ -36,6 +36,8 @@ public class UserController {
   public User detail(@PathVariable("id") ObjectId id){
     return userApp.detail(id);
   }
+
+
 
 
 }

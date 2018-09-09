@@ -1,10 +1,10 @@
 package com.thanos.soulgem.domain.identity;
 
 import com.thanos.common.domain.Aggregate;
+import com.thanos.soulgem.domain.identity.command.DepartmentUpdate;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 /**
  * Create by zhangzheng on 7/24/18
@@ -20,20 +20,27 @@ public class Department extends Aggregate{
   String name;
 
   //父级部门
-  ObjectId parent;
+  Department parent;
 
   String telephone;
 
   //备注
-  String mark;
+  String remark;
 
-  public Department(ObjectId companyId, String name,
-      ObjectId parent, String telephone, String mark) {
+  public Department(ObjectId companyId, String name, String telephone, String remark) {
     this.companyId = companyId;
     this.name = name;
-    this.parent = parent;
     this.telephone = telephone;
-    this.mark = mark;
+    this.remark = remark;
   }
 
+  public void merge(DepartmentUpdate update){
+    this.name = update.getName();
+    this.telephone = update.getTelephone();
+    this.remark = update.getRemark();
+  }
+
+  public void setParent(Department parent) {
+    this.parent = parent;
+  }
 }

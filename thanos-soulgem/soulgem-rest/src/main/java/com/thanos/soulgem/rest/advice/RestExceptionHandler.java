@@ -5,6 +5,7 @@ import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.UNPROCESSABLE_ENTITY;
 
 import com.thanos.common.domain.exception.ApplicationException;
+import com.thanos.common.domain.exception.AuthorizationException;
 import com.thanos.common.domain.exception.BusinessException;
 import com.thanos.common.domain.exception.IllegalInputException;
 import com.thanos.common.domain.exception.ResultCase;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -50,6 +52,15 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     return handleExceptionInternal(
         ex, ex.resultCase(), EMPTY_HEADERS, UNPROCESSABLE_ENTITY, webReq);
   }
+
+  @ExceptionHandler({AuthorizationException.class})
+  public final ResponseEntity<Object> handleAuthorizationException(
+      BusinessException ex, HttpServletRequest request, WebRequest webReq) {
+    logError(ex, request);
+    return handleExceptionInternal(
+        ex, ex.resultCase(), EMPTY_HEADERS, HttpStatus.UNAUTHORIZED, webReq);
+  }
+
 
   @ExceptionHandler({ApplicationException.class})
   public final ResponseEntity<Object> handleApplicationException(

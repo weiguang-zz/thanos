@@ -1,6 +1,6 @@
 package com.thanos.spacegem.core;
 
-import com.thanos.common.domain.RealtimeData;
+import com.thanos.common.domain.RealTimeData;
 import com.thanos.spacegem.model.CollectionPoint;
 
 import org.bson.types.ObjectId;
@@ -54,14 +54,20 @@ public class MockFetchDateServiceImpl implements FetchDataService {
 
 
   @Override
-  public List<RealtimeData> fetch() {
+  public List<RealTimeData> fetch() {
 
-    List<RealtimeData> realTimeDataList = new ArrayList<>();
+    List<RealTimeData> realTimeDataList = new ArrayList<>();
+    collectPointMap.put("1",1);
+    collectPointMap.put("2",2);
+    collectPointMap.put("3",3);
+    collectPointMap.put("0",0);
+
+
     collectPointMap.keySet().forEach(key -> {
       Integer type = collectPointMap.get(key);
       if (type != null) {
         CollectionPoint collectionPoint = CollectionPoint.getCollectionPoint(type);
-        RealtimeData data = getPoint(collectionPoint, key);
+        RealTimeData data = getPoint(collectionPoint, key);
         realTimeDataList.add(data);
       }
     });
@@ -76,7 +82,7 @@ public class MockFetchDateServiceImpl implements FetchDataService {
    * @param collectPointCode
    * @return
    */
-  public RealtimeData getPoint(CollectionPoint type, String collectPointCode) {
+  public RealTimeData getPoint(CollectionPoint type, String collectPointCode) {
     switch (type) {
       case REFUELING_POINT:
         return getOneRefuelingPoint(collectPointCode);
@@ -96,8 +102,8 @@ public class MockFetchDateServiceImpl implements FetchDataService {
   /**
    * 获取一个加油点对象
    */
-  private RealtimeData getOneRefuelingPoint(String collectPointCode) {
-    return new RealtimeData(new ObjectId(companyId), collectPointCode,
+  private RealTimeData getOneRefuelingPoint(String collectPointCode) {
+    return new RealTimeData(new ObjectId(companyId), collectPointCode,
                             refuelingPointState.get(random.nextInt(refuelingPointState.size()))
                                 .toString());
   }
@@ -105,24 +111,24 @@ public class MockFetchDateServiceImpl implements FetchDataService {
   /**
    * 获取一个DI点
    */
-  private RealtimeData getOneDIPoint(String collectPointCode) {
-    return new RealtimeData(new ObjectId(companyId), collectPointCode,
+  private RealTimeData getOneDIPoint(String collectPointCode) {
+    return new RealTimeData(new ObjectId(companyId), collectPointCode,
                             diPointState.get(random.nextInt(diPointState.size())).toString());
   }
 
   /**
    * 获取一个ai点
    */
-  private RealtimeData getOneAIPoint(String collectPointCode) {
-    return new RealtimeData(new ObjectId(companyId), collectPointCode,
+  private RealTimeData getOneAIPoint(String collectPointCode) {
+    return new RealTimeData(new ObjectId(companyId), collectPointCode,
                             randomLong.nextFloat() + " ℃");
   }
 
   /**
    * 获取一个状态点
    */
-  private RealtimeData getOneConditionPoint(String collectPointCode) {
-    return new RealtimeData(new ObjectId(companyId), collectPointCode,
+  private RealTimeData getOneConditionPoint(String collectPointCode) {
+    return new RealTimeData(new ObjectId(companyId), collectPointCode,
                             conditionPointState.get(random.nextInt(conditionPointState.size())));
   }
 }

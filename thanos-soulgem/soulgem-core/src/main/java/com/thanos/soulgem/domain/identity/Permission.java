@@ -1,23 +1,25 @@
 package com.thanos.soulgem.domain.identity;
 
-import com.thanos.common.domain.Aggregate;
-import org.springframework.data.mongodb.core.index.Indexed;
+import com.thanos.common.domain.ValueObject;
 
 /**
  * Create by zhangzheng on 7/21/18
  * Email:zhangzheng@youzan.com
  */
-public class Permission extends Aggregate{
+@ValueObject
+public class Permission{
 
-  @Indexed(unique = true)
   String name;
 
-  String url;
+  String group;
+
+  String methodGenericString;//方法的签名
 
 
-  public Permission(String url, String name) {
-    this.url = url;
+  public Permission(String name, String group, String methodGenericString) {
     this.name = name;
+    this.group = group;
+    this.methodGenericString = methodGenericString;
   }
 
 }

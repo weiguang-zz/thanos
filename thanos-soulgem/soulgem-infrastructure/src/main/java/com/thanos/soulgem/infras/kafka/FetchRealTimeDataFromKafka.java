@@ -2,18 +2,18 @@ package com.thanos.soulgem.infras.kafka;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.thanos.common.domain.RealtimeData;
-import com.thanos.soulgem.domain.monitor.FetchRealtimeDataService;
+import com.thanos.common.domain.RealTimeData;
+import com.thanos.soulgem.domain.monitor.FetchRealTimeDataService;
+
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.springframework.kafka.annotation.KafkaListener;
+
 import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.kafka.annotation.KafkaListener;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -22,15 +22,15 @@ import lombok.extern.slf4j.Slf4j;
  * Email:zhangzheng@youzan.com
  */
 @Slf4j
-public class FetchRealtimeDataFromKafka implements FetchRealtimeDataService {
+public class FetchRealTimeDataFromKafka implements FetchRealTimeDataService {
 
-  private BlockingQueue<List<RealtimeData>> queue = new LinkedBlockingDeque<>();
+  private BlockingQueue<List<RealTimeData>> queue = new LinkedBlockingDeque<>();
 
   private Gson gson = new Gson();
-  private Type contentType = new TypeToken<List<RealtimeData>>(){}.getType();
+  private Type contentType = new TypeToken<List<RealTimeData>>(){}.getType();
 
   @Override
-  public List<RealtimeData> fetch() {
+  public List<RealTimeData> fetch() {
     try {
       return queue.take();
     } catch (InterruptedException e) {
@@ -40,7 +40,7 @@ public class FetchRealtimeDataFromKafka implements FetchRealtimeDataService {
   }
 
   @Override
-  public List<RealtimeData> fetch(Long timeout, TimeUnit unit) {
+  public List<RealTimeData> fetch(Long timeout, TimeUnit unit) {
     try {
       return queue.poll(timeout,unit);
     } catch (InterruptedException e) {
@@ -53,7 +53,7 @@ public class FetchRealtimeDataFromKafka implements FetchRealtimeDataService {
   public void dataReceived(ConsumerRecord<String,String> record){
     try{
       String content = record.value();
-      List<RealtimeData> data = gson.fromJson(content, contentType);
+      List<RealTimeData> data = gson.fromJson(content, contentType);
       queue.add(data);
     } catch (Exception e){
       log.error("receive data error",e);

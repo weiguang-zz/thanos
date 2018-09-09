@@ -167,7 +167,7 @@ other:String 其他</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="87.0" width="209.0" x="-245.7392808091926" y="408.0"/>
+          <y:Geometry height="87.0" width="209.0" x="-261.0" y="408.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="184.63525390625" x="12.182373046875" y="3.0">EquipmentParams&lt;值对象&gt;<y:LabelModel>

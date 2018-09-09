@@ -1,7 +1,7 @@
 package com.thanos.spacegem.core;
 
 import com.alibaba.fastjson.JSON;
-import com.thanos.common.domain.RealtimeData;
+import com.thanos.common.domain.RealTimeData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,14 +58,15 @@ public class KafkaProducerService {
     if (isMock) {
       fetchDataService = mockFetchDateService;
     }
-    while (true) {
+    Boolean result = false;
+    while (!result) {
       try {
         //设置暂停的时间 5 秒
         Thread.sleep(5 * 1000);
-        List<RealtimeData> dataList = fetchDataService.fetch();
+        List<RealTimeData> dataList = mockFetchDateService.fetch();
 
         sendToKafka(dataList);
-
+        fromRedisSend();
       } catch (Exception e) {
         log.error("KafkaProducerService send Exception");
       }
@@ -79,28 +80,22 @@ public class KafkaProducerService {
    */
   public void fromRedisSend() {
     Boolean result = false;
-    while (!result) {
-      try {
-        //设置暂停的时间 5 秒
-        Thread.sleep(5 * 1000);
-        //队列中没有直接结束此次循环
-        if (redisUtil.lGetListSize(redisKey) <= 0) {
-          continue;
-        }
+    try {
+      //队列中没有直接结束此次循环
+      if (redisUtil.lGetListSize(redisKey) > 0) {
         //一次取1000条
         List<Object> dataList = redisUtil.lGet(redisKey, 0, 1000);
         if (!CollectionUtils.isEmpty(dataList)) {
-          List<RealtimeData> breakDataList = new ArrayList<>();
+          List<RealTimeData> breakDataList = new ArrayList<>();
           for (Object data : dataList) {
-            breakDataList.add((RealtimeData) data);
+            breakDataList.add((RealTimeData) data);
           }
           sendToKafka(breakDataList);
           redisUtil.lRemove(redisKey, 0, dataList.size());
         }
-
-      } catch (Exception e) {
-        log.error("KafkaProducerService fromRedisSend Exception");
       }
+    } catch (Exception e) {
+      log.error("KafkaProducerService fromRedisSend Exception");
     }
 
   }
@@ -108,13 +103,14 @@ public class KafkaProducerService {
   /**
    * 发送到kafka
    */
-  private void sendToKafka(List<RealtimeData> dataList) {
+  private void sendToKafka(List<RealTimeData> dataList) {
     try {
       if (!CollectionUtils.isEmpty(dataList)) {
-        List<RealtimeData> breakDataList = new ArrayList<>();
+        List<RealTimeData> breakDataList = new ArrayList<>();
         for (int i = 0; i < dataList.size(); i++) {
           if (breakDataList.size() == 20
               || i >= dataList.size()) {
+
             kafkaTemplate.send(kafkaTopic, JSON.toJSONString(dataList));
             breakDataList.clear();
           } else {

@@ -8,14 +8,14 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  * 采集点的实时数据模型
  */
-public class RealtimeData extends Aggregate{
+public class RealTimeData extends Aggregate{
 
   ObjectId companyId;
   String collectPointCode;
   Date time;
   String value;
 
-  public RealtimeData(ObjectId companyId, String collectPointCode, String value) {
+  public RealTimeData(ObjectId companyId, String collectPointCode, String value) {
     this.companyId = companyId;
     this.collectPointCode = collectPointCode;
     this.value = value;

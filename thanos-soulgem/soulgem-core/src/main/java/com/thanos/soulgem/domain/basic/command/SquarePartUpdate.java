@@ -12,8 +12,7 @@ import org.springframework.beans.BeanUtils;
  * Email:zhangzheng@youzan.com
  */
 @Data
-public class SaveOrUpdateSquarePart extends Validator<SaveOrUpdateSquarePart> {
-  ObjectId id;
+public class SquarePartUpdate extends Validator<SquarePartUpdate> {
 
   @NotNull
   ObjectId equipmentId;

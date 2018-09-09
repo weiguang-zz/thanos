@@ -5,7 +5,10 @@ import static com.thanos.common.domain.exception.BizAssert.check;
 import com.thanos.soulgem.domain.basic.EquipmentRepo;
 import com.thanos.soulgem.domain.basic.LubricatingCard;
 import com.thanos.soulgem.domain.basic.LubricatingCardRepo;
-import com.thanos.soulgem.domain.basic.command.SaveOrUpdateLubricatingCard;
+import com.thanos.soulgem.domain.basic.command.LubricatingCardSave;
+import com.thanos.soulgem.domain.basic.command.LubricatingCardUpdate;
+import com.thanos.soulgem.domain.identity.PermissionGroup;
+import com.thanos.soulgem.domain.identity.PermissionPoint;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,36 +27,30 @@ public class LubricatingCardApp {
   @Autowired
   LubricatingCardRepo lubricatingCardRepo;
 
-
-  public void save(SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
-    check(equipmentRepo.exists(saveOrUpdateLubricatingCard.getEquipmentId()), "equipmentId not exist");
-    LubricatingCard lubricatingCard = saveOrUpdateLubricatingCard.build();
+  @PermissionPoint(name = "新增润滑卡片", group = PermissionGroup.Equipment)
+  public void save(LubricatingCardSave lubricatingCardSave){
+    check(equipmentRepo.existsById(lubricatingCardSave.getEquipmentId()), "equipmentId not exist");
+    LubricatingCard lubricatingCard = lubricatingCardSave.build();
     lubricatingCardRepo.save(lubricatingCard);
   }
 
-  public void update(ObjectId id, SaveOrUpdateLubricatingCard saveOrUpdateLubricatingCard){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    LubricatingCard lubricatingCard = lubricatingCardRepo.findOne(id);
-    lubricatingCard.merge(saveOrUpdateLubricatingCard);
+  @PermissionPoint(name = "更新润滑卡片", group = PermissionGroup.Equipment)
+  public void update(ObjectId id, LubricatingCardUpdate update){
+    check(lubricatingCardRepo.existsById(id), "id not exist");
+    LubricatingCard lubricatingCard = lubricatingCardRepo.findById(id).get();
+    lubricatingCard.merge(update);
     lubricatingCardRepo.save(lubricatingCard);
   }
 
+  @PermissionPoint(name = "删除润滑卡片", group = PermissionGroup.Equipment)
   public void delete(ObjectId id){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    lubricatingCardRepo.delete(id);
-  }
-
-  /**
-   * 删除某个设备下所有的润滑卡片
-   * @param equipmentId
-   */
-  public void deleteAllOfEquipment(ObjectId equipmentId){
-    lubricatingCardRepo.deleteAllByEquipmentId(equipmentId);
+    check(lubricatingCardRepo.existsById(id), "id not exist");
+    lubricatingCardRepo.deleteById(id);
   }
 
   public LubricatingCard detail(ObjectId id){
-    check(lubricatingCardRepo.exists(id), "id not exist");
-    return lubricatingCardRepo.findOne(id);
+    check(lubricatingCardRepo.existsById(id), "id not exist");
+    return lubricatingCardRepo.findById(id).get();
   }
 
   /**
