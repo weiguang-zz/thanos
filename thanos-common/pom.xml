@@ -28,6 +28,13 @@
       <artifactId>validation-api</artifactId>
     </dependency>
 
+    <!-- validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>5.2.4.Final</version>
+    </dependency>
+
   </dependencies>
 
 
