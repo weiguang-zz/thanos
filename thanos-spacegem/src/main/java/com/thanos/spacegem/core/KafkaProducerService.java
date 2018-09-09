@@ -5,6 +5,7 @@ import com.thanos.common.domain.RealTimeData;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -24,12 +25,12 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class KafkaProducerService {
 
+  @Autowired
+  private RedisTemplate<Object, Object> redisTemplate;
 
   @Value("${redisKey}")
   private String redisKey;
 
-  @Autowired
-  private RedisUtil redisUtil;
 
   @Value("${kafka.topic.real-time-data:realTimeDataTopic}")
   private String kafkaTopic;
@@ -82,16 +83,16 @@ public class KafkaProducerService {
     Boolean result = false;
     try {
       //队列中没有直接结束此次循环
-      if (redisUtil.lGetListSize(redisKey) > 0) {
+      if (redisTemplate.opsForList().size(redisKey) > 0) {
         //一次取1000条
-        List<Object> dataList = redisUtil.lGet(redisKey, 0, 1000);
+        List<Object> dataList = redisTemplate.opsForList().range(redisKey, 0, 1000);
         if (!CollectionUtils.isEmpty(dataList)) {
           List<RealTimeData> breakDataList = new ArrayList<>();
           for (Object data : dataList) {
             breakDataList.add((RealTimeData) data);
           }
           sendToKafka(breakDataList);
-          redisUtil.lRemove(redisKey, 0, dataList.size());
+          redisTemplate.opsForList().remove(redisKey, 0, dataList.size());
         }
       }
     } catch (Exception e) {
@@ -123,7 +124,8 @@ public class KafkaProducerService {
       log.error("发送到kafka失败 加入补偿队列 dataList : {}", dataList);
       try {
         //设置永久有效
-        redisUtil.lSet(redisKey, dataList, -1);
+        redisTemplate.opsForList().rightPush(redisKey, dataList);
+
       } catch (Exception exp) {
         log.error("缓存到redis 失败 dataList : {}", dataList);
       }
