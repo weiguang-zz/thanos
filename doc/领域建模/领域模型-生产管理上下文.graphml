@@ -522,7 +522,7 @@ auditNodes:List&lt;AuditNode&gt; 审批节点</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.36895992226414" width="220.82351354847242" x="441.17334743472566" y="1408.5823100952223"/>
+          <y:Geometry height="122.36895992226414" width="220.82351354847242" x="431.87173830966935" y="1408.5823100952223"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="123.38037109375" x="48.72157122736121" y="3.0">AuditNode(值对象)<y:LabelModel>
@@ -547,7 +547,7 @@ users:List&lt;AuditUserHolder&gt; 审批人
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="87.0" width="166.68739834506653" x="684.2256714186547" y="1408.5823100952223"/>
+          <y:Geometry height="87.0" width="166.68739834506653" x="691.9968609831981" y="1415.511783507595"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.11962890625" x="1.2838847194082632" y="3.0">AuditUserHolder(值对象)<y:LabelModel>
@@ -676,7 +676,7 @@ quotes:List&lt;Quote&gt; 报价</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="112.98603071629873" width="173.43439746424156" x="684.2256714186547" y="1577.6153624943313"/>
+          <y:Geometry height="112.98603071629873" width="173.43439746424156" x="688.6233614236105" y="1577.6153624943313"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.0703125" x="40.18204248212078" y="3.0">Quote(值对象)<y:LabelModel>

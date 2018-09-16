@@ -3,6 +3,7 @@ package com.thanos.soulgem.domain.identity.command;
 import com.thanos.common.domain.Validator;
 import com.thanos.soulgem.domain.basic.Menu;
 import com.thanos.soulgem.domain.identity.Permission;
+import io.swagger.annotations.ApiModelProperty;
 import java.util.Collections;
 import java.util.List;
 import javax.validation.constraints.NotNull;
@@ -19,12 +20,13 @@ public class RoleSave extends Validator<RoleSave> {
   ObjectId companyId;
   @NotNull
   String name;
-
+  @ApiModelProperty("备注")
   String remark;
   @NotNull
   String createdBy;
-
+  @ApiModelProperty("权限列表")
   List<Permission> permissions = Collections.emptyList();
+  @ApiModelProperty("菜单列表")
   List<Menu> menus = Collections.emptyList();
 
 }

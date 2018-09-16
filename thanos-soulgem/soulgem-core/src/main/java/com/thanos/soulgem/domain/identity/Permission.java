@@ -15,6 +15,9 @@ public class Permission{
 
   String methodGenericString;//方法的签名
 
+  public String group() {
+     return group;
+  }
 
   public Permission(String name, String group, String methodGenericString) {
     this.name = name;
