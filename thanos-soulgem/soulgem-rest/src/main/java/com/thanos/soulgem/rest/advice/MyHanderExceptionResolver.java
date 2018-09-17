@@ -53,7 +53,7 @@ public class MyHanderExceptionResolver implements HandlerExceptionResolver {
     if(ex instanceof ApplicationException){
       writeErrorResponse(((ApplicationException) ex).resultCase(), INTERNAL_SERVER_ERROR, EMPTY_HEADERS, response);
     }
-    writeErrorResponse(new ResultCase(Id.internal_error, "Unexpected error"), INTERNAL_SERVER_ERROR, EMPTY_HEADERS, response);
+    writeErrorResponse(new ResultCase(Id.internal_error, ex.getMessage()), INTERNAL_SERVER_ERROR, EMPTY_HEADERS, response);
 
     return new ModelAndView();//触发exception resolver chain break
   }
