@@ -18,7 +18,7 @@
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="132.5" width="255.0" x="55.5" y="220.5"/>
+          <y:Geometry height="132.5" width="255.0" x="55.5" y="235.0680977486628"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="126.73828125" x="64.130859375" y="3.0">Permission(值对象)<y:LabelModel>
@@ -43,7 +43,7 @@ methodGenericString:String 方法的签名
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="91.0" width="255.0" x="379.8125" y="228.0"/>
+          <y:Geometry height="98.06809774866281" width="255.0" x="376.875" y="246.84826066310075"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.75244140625" x="86.623779296875" y="3.0">Role(聚合根)<y:LabelModel>
@@ -55,8 +55,7 @@ methodGenericString:String 方法的签名
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>name:String 名字
-permissions:List&lt;Permission&gt; 权限列表
-menus:List&lt;Menu&gt; 菜单，使用而不是引用</y:AttributeLabel>
+permissions:List&lt;Permission&gt; 权限列表</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -66,10 +65,10 @@ menus:List&lt;Menu&gt; 菜单，使用而不是引用</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="132.5" width="249.125" x="382.75" y="401.0"/>
+          <y:Geometry height="224.38527073261605" width="252.0625" x="379.8125" y="410.49999999999994"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.44970703125" x="74.837646484375" y="3.0">User（聚合根）<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="99.44970703125" x="76.306396484375" y="3.0">User（聚合根）<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -82,7 +81,13 @@ realName:String 真实的名字
 password:String 密码
 company: Company 公司
 department:Department 部门
-roles:List&lt;Role&gt; 角色列表</y:AttributeLabel>
+roles:List&lt;Role&gt; 角色列表
+sex:Sex 性别
+birthday:Date 出生年月
+dateOfEmployed: Date 入职时间
+dateOfEmployedByGroup:Date 入集团时间
+age:int 年龄
+workingAge: 工龄</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -92,10 +97,10 @@ roles:List&lt;Role&gt; 角色列表</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="123.0" width="249.0" x="58.5" y="410.5"/>
+          <y:Geometry height="152.45040728609501" width="285.37671178876934" x="25.12328821123066" y="446.46743172326046"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.02587890625" x="58.487060546875" y="3.0">Department(聚合根)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="132.02587890625" x="76.67541644125967" y="3.0">Department(聚合根)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -106,9 +111,10 @@ roles:List&lt;Role&gt; 角色列表</y:AttributeLabel>
             <y:AttributeLabel>ObjectId: companyId 公司id
 name:String 名称
 parent:Department 部门名称
+level:DepartmentLevel 部门级别
 telephone:String
 mark:String</y:AttributeLabel>
-            <y:MethodLabel/>
+            <y:MethodLabel>assignParent(parent:Department)</y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
       </data>
@@ -117,7 +123,7 @@ mark:String</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="123.0" width="230.0" x="691.125" y="410.5"/>
+          <y:Geometry height="123.0" width="230.0" x="683.905455585611" y="461.1926353663079"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="115.17919921875" x="57.410400390625" y="3.0">Company(聚合根)<y:LabelModel>
@@ -140,7 +146,7 @@ telephone:电话</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="74.0" width="355.0" x="5.5" y="589.5"/>
+          <y:Geometry height="74.0" width="355.0" x="-31.421784193073478" y="788.7607158827194"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="119.20361328125" x="117.898193359375" y="3.0">ValidationService<y:LabelModel>
@@ -161,39 +167,7 @@ telephone:电话</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="106.0" width="249.0" x="672.125" y="220.5"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="223.4130859375" x="12.79345703125" y="3.0">Menu(值对象) 需要存储一份模版数据<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="4.0" x="122.5" y="51.0">
-            <y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>name:String 菜单名称 
-path:String 跳转路径
-children:List&lt;Menu&gt; 子菜单
-icon:String 小图标</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n7">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="85.0" width="270.0625" x="382.75" y="578.5"/>
+          <y:Geometry height="85.0" width="270.0625" x="392.25837488067634" y="783.2607158827194"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="147.8759765625" x="61.09326171875" y="3.0">PermissionInitService<y:LabelModel>

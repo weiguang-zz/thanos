@@ -21,7 +21,7 @@
           <y:Geometry height="145.0" width="265.0" x="318.0" y="209.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="191.69384765625" x="36.653076171875" y="3.0">EquipmentInstance&lt;聚合根&gt;<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="136.44384765625" x="64.278076171875" y="3.0">FixedAsset&lt;聚合根&gt;<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -85,7 +85,7 @@ params:List&lt;EquipmentParams&gt; 设备参数
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>id：ObjectId 唯一标示
-equipmentInstanceId: 设备实例id
+fixedAssetId: 固定资产id
 squarePart:SquarePart 备件基础信息
 vendor:String 厂家
 contractId:ObjectId 合同
@@ -109,10 +109,10 @@ status:SquarePartInstanceStatus 备件实例状态: 待审核, 库存中, 待使
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="182.0" width="341.1320447834164" x="613.0" y="384.0"/>
+          <y:Geometry height="182.0" width="341.1320447834164" x="613.0" y="398.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="143.8134765625" x="98.6592841104582" y="3.0">CollectPoint&lt;聚合根&gt;<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.6796875" x="84.7261786417082" y="3.0">MonitoringPoint&lt;聚合根&gt;<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -121,10 +121,10 @@ status:SquarePartInstanceStatus 备件实例状态: 待审核, 库存中, 待使
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>id：ObjectId 唯一标示
-equipmentInstanceId: ObjectId 设备实例id
+fixedAssetId: ObjectId 固定资产id
 code:String 采集点代号
 name:String 采集点名称
-type:CollectPointType 采集点类型 DI，AI，加油点，状态点
+type:MonitoringPointType 采集点类型 
 lowLowThreshold:Double 低低报阀值
 lowThreshold:Double 低报阀值
 highThreshold:Double 高报阀值
@@ -138,7 +138,7 @@ highHighThreshold:Double 高高报阀值</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="182.0" width="260.0" x="-261.0" y="196.0"/>
+          <y:Geometry height="182.0" width="260.0" x="-279.59594160984284" y="196.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="136.2216796875" x="61.88916015625" y="3.0">SquarePart&lt;聚合根&gt;<y:LabelModel>
@@ -167,7 +167,7 @@ other:String 其他</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="87.0" width="209.0" x="-261.0" y="408.0"/>
+          <y:Geometry height="87.0" width="209.0" x="-279.59594160984284" y="408.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="184.63525390625" x="12.182373046875" y="3.0">EquipmentParams&lt;值对象&gt;<y:LabelModel>
@@ -189,7 +189,7 @@ value：String 参数值</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="189.0" width="260.0" x="-261.0" y="-12.0"/>
+          <y:Geometry height="189.0" width="260.0" x="-279.59594160984284" y="-12.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="171.12744140625" x="44.436279296875" y="3.0">LubricatingCard&lt;聚合根&gt;<y:LabelModel>
@@ -232,7 +232,7 @@ temperature:Double 标准温度
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>id:ObjectId 唯一标示
-equipmentInstanceId: 设备实例id
+fixedAssetId:ObjectId 固定资产id
 lubricatingCard:LubricatingCard 润滑卡片
 operator:String 操作人
 date:Date 操作日期
@@ -248,7 +248,7 @@ remark:String 备注
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="390.36390061239763" width="404.7266460134908" x="-1.0" y="391.0"/>
+          <y:Geometry height="390.36390061239763" width="404.7266460134908" x="-279.59594160984284" y="583.9210562309021"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.86376953125" x="155.4314382411204" y="3.0">Ticket(聚合根)<y:LabelModel>
@@ -292,10 +292,10 @@ squarePartsReplacer:List&lt;SquareParts&gt; 换上的备件，这里面的备件
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="171.0" width="248.46957173329236" x="490.3365634194687" y="617.3639006123976"/>
+          <y:Geometry height="171.0" width="322.85333817266377" x="194.00365950459903" y="596.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="151.6337890625" x="48.41789133539618" y="3.0">ProcessFlow（聚合根）<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="151.6337890625" x="85.60977455508188" y="3.0">ProcessFlow（聚合根）<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -308,8 +308,8 @@ name:String 名称
 companyId:ObjectId 公司
 backgroudPic:String 背景图url
 configuration:text 采集点的配置
-collectPointIds:List&lt;ObjectId&gt; 采集点id列表
-category:ProcessFlowCategory 类别</y:AttributeLabel>
+monitoringPointIds:List&lt;ObjectId&gt; 检测点id列表
+category:String 类别</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
@@ -319,10 +319,10 @@ category:ProcessFlowCategory 类别</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="112.9860307162985" width="255.63706829972716" x="779.1714891333461" y="617.3639006123976"/>
+          <y:Geometry height="112.9860307162985" width="255.63706829972716" x="194.003659504599" y="452.1146610059875"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="195.42626953125" x="30.10539938423858" y="3.0">ProcessFlowCategory(聚合根)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="195.42626953125" x="30.10539938423858" y="3.0">ProcessFlowCategory(值对象)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -330,8 +330,7 @@ category:ProcessFlowCategory 类别</y:AttributeLabel>
             </y:ModelParameter>
           </y:NodeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>id:ObjectId 唯一标示
-name:String 分类名称
+            <y:AttributeLabel>categories:List&lt;String&gt; 分类名称
 companyId:ObjectId 公司</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
@@ -342,7 +341,7 @@ companyId:ObjectId 公司</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.20138344457189" width="220.82351354847242" x="504.1595925118786" y="818.3639006123976"/>
+          <y:Geometry height="122.20138344457189" width="220.82351354847242" x="233.028435539086" y="797.899308277714"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="103.3154296875" x="58.75404193048621" y="3.0">Camera(聚合根)<y:LabelModel>
@@ -367,10 +366,10 @@ remark:String 备注</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="133.46459233468352" width="220.82351354847253" x="796.5782665089733" y="806.4137620174781"/>
+          <y:Geometry height="152.0" width="265.0" x="613.0" y="783.0"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="141.67431640625" x="39.57459857111127" y="3.0">RealtimeData(聚合根)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="141.67431640625" x="61.662841796875" y="3.0">RealtimeData(聚合根)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -380,7 +379,7 @@ remark:String 备注</y:AttributeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>id:ObjectId 唯一标示
 companyId: ObjectId 公司id
-collectPointCode:String 采集点代号
+monitoringPointCode:String 采集点代号
 time:Date 时间
 value:Double 值</y:AttributeLabel>
             <y:MethodLabel/>
@@ -392,7 +391,7 @@ value:Double 值</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="213.31812735227516" width="296.75932741431114" x="58.461004712571025" y="1166.5524728268333"/>
+          <y:Geometry height="213.31812735227516" width="296.75932741431114" x="58.461004712571025" y="1204.2060130742018"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.01611328125" x="107.87160706653057" y="3.0">Plan(聚合根)<y:LabelModel>
@@ -423,7 +422,7 @@ auditHistory:List&lt;AuditRecord&gt; 审核历史
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.36895992226403" width="282.1296309455912" x="-300.22654911670395" y="1215.1835129045694"/>
+          <y:Geometry height="122.36895992226403" width="282.1296309455912" x="-300.22654911670395" y="1252.8370531519379"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="110.818359375" x="85.6556357852956" y="3.0">PlanItem(聚合根)<y:LabelModel>
@@ -449,7 +448,7 @@ sugguestVendor:vendor 建议厂家
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="87.0" width="183.04468473159233" x="-250.68407600970448" y="1075.113127254173"/>
+          <y:Geometry height="87.0" width="183.04468473159233" x="-250.68407600970448" y="1112.7666675015414"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="100.7001953125" x="41.17224470954616" y="3.0">Vendor(聚合根)<y:LabelModel>
@@ -472,7 +471,7 @@ name:String 厂家名称
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.20138344457177" width="282.1296309455912" x="-300.22654911670395" y="1397.947873112383"/>
+          <y:Geometry height="122.20138344457177" width="282.1296309455912" x="-300.22654911670395" y="1435.6014133597514"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.18701171875" x="73.4713096134206" y="3.0">AuditRecord(值对象)<y:LabelModel>
@@ -497,7 +496,7 @@ isAccepted:Boolean 是否通过</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.36895992226414" width="326.0222649517577" x="55.07813483370751" y="1397.8640848735367"/>
+          <y:Geometry height="122.36895992226414" width="326.0222649517577" x="55.07813483370751" y="1435.5176251209052"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="120.06689453125" x="102.97768521025384" y="3.0">AuditFlow(聚合根)<y:LabelModel>
@@ -522,7 +521,7 @@ auditNodes:List&lt;AuditNode&gt; 审批节点</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.36895992226414" width="220.82351354847242" x="431.87173830966935" y="1408.5823100952223"/>
+          <y:Geometry height="122.36895992226414" width="220.82351354847242" x="431.87173830966935" y="1446.2358503425908"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="123.38037109375" x="48.72157122736121" y="3.0">AuditNode(值对象)<y:LabelModel>
@@ -547,7 +546,7 @@ users:List&lt;AuditUserHolder&gt; 审批人
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="87.0" width="166.68739834506653" x="691.9968609831981" y="1415.511783507595"/>
+          <y:Geometry height="87.0" width="166.68739834506653" x="691.9968609831981" y="1453.1653237549635"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.11962890625" x="1.2838847194082632" y="3.0">AuditUserHolder(值对象)<y:LabelModel>
@@ -597,7 +596,7 @@ isProcessed:Boolean 是否处理了
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="154.8512147115025" width="173.43439746424156" x="431.7782550105659" y="1195.7859291472196"/>
+          <y:Geometry height="154.8512147115025" width="173.43439746424156" x="431.7782550105659" y="1233.439469394588"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="107.79052734375" x="32.82193506024578" y="3.0">AuditCommand<y:LabelModel>
@@ -692,6 +691,79 @@ price:Double 报价
 bill:String 票据
 remark:String 材质或技术信息说明
 choosed:Boolean 是否最终确定厂家</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n25">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="150.5" width="341.1320447834164" x="613.0" y="606.25"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="193.4140625" x="73.8589911417082" y="3.0">MonitoringPointType(聚合根)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>id:ObjectId 唯一标示
+name:String 类型名
+dataType:Enum 数值型|状态型
+leftClickPath:String 左键单机跳转的path
+rightClickMenu:List&lt;RightClickMenu&gt; 右键单击的菜单
+statusMap:Map&lt;Integer,Status&gt; 状态表 
+
+</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n26">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="87.0" width="220.82351354847242" x="966.0731195020164" y="620.0"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="157.56884765625" x="31.62733294611121" y="3.0">RightClickMenu(值对象)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>name:String 名称
+path:String 跳转路径</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n27">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="87.0" width="220.8235135484722" x="966.0731195020165" y="726.7135182438078"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="94.13037109375" x="63.346571227361096" y="3.0">Status(聚合根)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>value:int 状态值
+remark:String 备注
+icon:String 图标</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
