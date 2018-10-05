@@ -391,7 +391,7 @@ value:Double 值</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="213.31812735227516" width="296.75932741431114" x="58.461004712571025" y="1204.2060130742018"/>
+          <y:Geometry height="213.31812735227516" width="296.75932741431114" x="58.461004712571025" y="1192.19949776863"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="81.01611328125" x="107.87160706653057" y="3.0">Plan(聚合根)<y:LabelModel>
@@ -471,7 +471,7 @@ name:String 厂家名称
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.20138344457177" width="282.1296309455912" x="-300.22654911670395" y="1435.6014133597514"/>
+          <y:Geometry height="122.20138344457177" width="282.1296309455912" x="-551.2439346403884" y="1818.8396239630683"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.18701171875" x="73.4713096134206" y="3.0">AuditRecord(值对象)<y:LabelModel>
@@ -496,10 +496,10 @@ isAccepted:Boolean 是否通过</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.36895992226414" width="326.0222649517577" x="55.07813483370751" y="1435.5176251209052"/>
+          <y:Geometry height="129.51083032704673" width="257.6643625059787" x="-539.0113004205821" y="1997.5073336519106"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="120.06689453125" x="102.97768521025384" y="3.0">AuditFlow(聚合根)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="182.62939453125" x="37.51748398736436" y="3.0">AuditFlowTemplate(值对象)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -509,8 +509,8 @@ isAccepted:Boolean 是否通过</y:AttributeLabel>
           <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
             <y:AttributeLabel>id:ObjectId 唯一标识
 companyId:ObjectId 公司唯一标识
-target:AuditFlowTarget 审批流目标，Plan、Contract等
-targetDepartmentId:ObjectId 目标部门
+type:enum plan | contract等
+departmentId:ObjectId 目标部门
 auditNodes:List&lt;AuditNode&gt; 审批节点</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
@@ -521,7 +521,7 @@ auditNodes:List&lt;AuditNode&gt; 审批节点</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="122.36895992226414" width="220.82351354847242" x="431.87173830966935" y="1446.2358503425908"/>
+          <y:Geometry height="122.36895992226414" width="220.82351354847242" x="87.51126899653121" y="1818.8396239630683"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="123.38037109375" x="48.72157122736121" y="3.0">AuditNode(值对象)<y:LabelModel>
@@ -535,7 +535,7 @@ auditNodes:List&lt;AuditNode&gt; 审批节点</y:AttributeLabel>
             <y:AttributeLabel>name:String 节点名称
 departmentId:ObjectId 部门
 departmentName:String 部门名称
-users:List&lt;AuditUserHolder&gt; 审批人
+users:List&lt;String&gt; 审批人
 </y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
@@ -543,56 +543,6 @@ users:List&lt;AuditUserHolder&gt; 审批人
       </data>
     </node>
     <node id="n19">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="87.0" width="166.68739834506653" x="691.9968609831981" y="1453.1653237549635"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="164.11962890625" x="1.2838847194082632" y="3.0">AuditUserHolder(值对象)<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>id:ObjectId 用户标识
-name:String 用户名</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n20">
-      <data key="d4"/>
-      <data key="d6">
-        <y:UMLClassNode>
-          <y:Geometry height="142.50100470568032" width="304.5333454262073" x="-300.22654911670395" y="1561.3511137972628"/>
-          <y:Fill color="#FFCC00" transparent="false"/>
-          <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="138.798828125" x="82.86725865060365" y="3.0">AuditEvent(领域事件)<y:LabelModel>
-              <y:SmartNodeLabelModel distance="4.0"/>
-            </y:LabelModel>
-            <y:ModelParameter>
-              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
-            </y:ModelParameter>
-          </y:NodeLabel>
-          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
-            <y:AttributeLabel>id:ObjectId 事件标识，因为事件需要落库
-targetType:AuditTargetType 审核目标类型
-targetId:ObjectId 审核目标
-auditRecord:AuditRecord  审核记录
-List&lt;AuditUserHolder&gt;: nextAuditor 下一个审核者
-isProcessed:Boolean 是否处理了
-
-</y:AttributeLabel>
-            <y:MethodLabel/>
-          </y:UML>
-        </y:UMLClassNode>
-      </data>
-    </node>
-    <node id="n21">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -617,14 +567,14 @@ isAccepted:Boolean 是否通过</y:AttributeLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n22">
+    <node id="n20">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="213.31812735227504" width="343.95155767781944" x="46.11348847067663" y="1550.2330447958009"/>
+          <y:Geometry height="194.95331773997623" width="296.75932741431114" x="65.64961676690552" y="1449.0616952082398"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="133.390625" x="105.28046633890972" y="3.0">Comparison(聚合根)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="133.390625" x="81.68435120715557" y="3.0">Comparison(聚合根)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -647,11 +597,11 @@ items:List&lt;ComparisonItem&gt; 比价单里的备件详情
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n23">
+    <node id="n21">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="112.9860307162985" width="220.8235135484723" x="441.17334743472566" y="1577.6153624943315"/>
+          <y:Geometry height="112.9860307162985" width="220.8235135484723" x="431.87173830966935" y="1586.998291700297"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="163.19287109375" x="28.815321227361153" y="3.0">ComparisonItem(聚合根)<y:LabelModel>
@@ -671,14 +621,14 @@ quotes:List&lt;Quote&gt; 报价</y:AttributeLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n24">
+    <node id="n22">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="112.98603071629873" width="173.43439746424156" x="688.6233614236105" y="1577.6153624943313"/>
+          <y:Geometry height="122.36895992226414" width="231.58962790318765" x="688.6233614236105" y="1577.6153624943313"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.0703125" x="40.18204248212078" y="3.0">Quote(值对象)<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="93.0703125" x="69.25965770159382" y="3.0">Quote(值对象)<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -696,7 +646,7 @@ choosed:Boolean 是否最终确定厂家</y:AttributeLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n25">
+    <node id="n23">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -724,7 +674,7 @@ statusMap:Map&lt;Integer,Status&gt; 状态表
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n26">
+    <node id="n24">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -746,7 +696,7 @@ path:String 跳转路径</y:AttributeLabel>
         </y:UMLClassNode>
       </data>
     </node>
-    <node id="n27">
+    <node id="n25">
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
@@ -764,6 +714,33 @@ path:String 跳转路径</y:AttributeLabel>
             <y:AttributeLabel>value:int 状态值
 remark:String 备注
 icon:String 图标</y:AttributeLabel>
+            <y:MethodLabel/>
+          </y:UML>
+        </y:UMLClassNode>
+      </data>
+    </node>
+    <node id="n26">
+      <data key="d4"/>
+      <data key="d6">
+        <y:UMLClassNode>
+          <y:Geometry height="164.19991515027777" width="257.6643625059787" x="-226.27362301363644" y="1789.2518751432538"/>
+          <y:Fill color="#FFCC00" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="120.06689453125" x="68.79873398736436" y="3.0">AuditFlow(聚合根)<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:UML clipContent="true" constraint="" omitDetails="false" stereotype="" use3DEffect="true">
+            <y:AttributeLabel>id:ObjectId 唯一标识
+targetType:enum plan | contract等 
+targetId: ObjectId 目标对象
+auditNodes:List&lt;AuditNode&gt; 审批节点
+nextNode:AuditNode 下一个审批人
+finished:Boolean 是否结束
+records:List&lt;AuditRecord&gt; 审批记录</y:AttributeLabel>
             <y:MethodLabel/>
           </y:UML>
         </y:UMLClassNode>
