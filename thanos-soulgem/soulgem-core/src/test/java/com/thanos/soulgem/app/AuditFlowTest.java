@@ -37,8 +37,8 @@ public class AuditFlowTest {
     PlanSaveCommand planSaveCommand = new PlanSaveCommand();
     planSaveCommand.setAuditNodes(ImmutableList.of(node1, node2));
     planApp.save(planSaveCommand);
-    //验证审批事件
-    //因为审批流是user1 -> user2, 所以此时user1会有一条审批事件
+    //验证审批流
+    //因为审批流是user1 -> user2, 所以此时user1会有一条审批流
     List<AuditFlow> auditFlows = auditFlowApp.findMyAuditFlow(user1);
     assertNotNull(auditFlows);
     assertEquals(1, auditFlows.size());
@@ -56,7 +56,7 @@ public class AuditFlowTest {
     assertEquals(0, auditFlowApp.findMyAuditFlow(user1).size());
     assertEquals(0, auditFlowApp.findMyAuditFlow(user2).size());
 
-    //验证审批事件的结果
+    //验证审批流的结果
     auditFlow = auditFlowApp.detail(auditFlow.id());
     assertEquals(true, auditFlow.finished());
   }
@@ -72,8 +72,8 @@ public class AuditFlowTest {
     PlanSaveCommand planSaveCommand = new PlanSaveCommand();
     planSaveCommand.setAuditNodes(ImmutableList.of(node1, node2));
     planApp.save(planSaveCommand);
-    //验证审批事件
-    //因为审批流是user1 -> user2, 所以此时user1会有一条审批事件
+    //验证审批流
+    //因为审批流是user1 -> user2, 所以此时user1会有一条审批流
     List<AuditFlow> auditFlows = auditFlowApp.findMyAuditFlow(user1);
     assertNotNull(auditFlows);
     assertEquals(1, auditFlows.size());
@@ -94,9 +94,10 @@ public class AuditFlowTest {
     assertEquals(0, auditFlowApp.findMyAuditFlow(user2).size());
     assertEquals(0, auditFlowApp.findMyAuditFlow(user3).size());
 
-    //验证审批事件的结果
+    //验证审批流的结果
     auditFlow = auditFlowApp.detail(auditFlow.id());
     assertEquals(true, auditFlow.finished());
   }
+
 
 }
