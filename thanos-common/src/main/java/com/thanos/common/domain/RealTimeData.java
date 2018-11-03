@@ -11,13 +11,13 @@ import org.bson.types.ObjectId;
 public class RealTimeData extends Aggregate{
 
   ObjectId companyId;
-  String collectPointCode;
+  String monitorCode;
   Date time;
   String value;
 
-  public RealTimeData(ObjectId companyId, String collectPointCode, String value) {
+  public RealTimeData(ObjectId companyId, String monitorCode, String value) {
     this.companyId = companyId;
-    this.collectPointCode = collectPointCode;
+    this.monitorCode = monitorCode;
     this.value = value;
     this.time = new Date();
   }

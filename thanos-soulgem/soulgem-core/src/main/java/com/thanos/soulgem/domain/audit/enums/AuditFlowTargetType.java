@@ -5,5 +5,9 @@ package com.thanos.soulgem.domain.audit.enums;
  * Email:zhangzheng@youzan.com
  */
 public enum  AuditFlowTargetType {
-  plan,comparision,contract,receipt,requisition
+  plan,//备件计划
+  comparision,//比价单
+  contract,//合同
+  receipt,//验收单
+  requisition//领料单
 }

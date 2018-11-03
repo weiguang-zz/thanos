@@ -29,7 +29,8 @@
 		<module>thanos-spacegem</module>
 		<module>thanos-deploy</module>
 		<module>thanos-common</module>
-	</modules>
+    <module>thanos-timegem</module>
+  </modules>
 
 
 	<dependencyManagement>

@@ -1,5 +1,9 @@
 package com.thanos.soulgem.app;
 
+import com.thanos.soulgem.domain.audit.DefaultAuditFlow;
+import com.thanos.soulgem.domain.audit.DefaultAuditFlowRepo;
+import com.thanos.soulgem.domain.audit.command.DefaultAuditFlowSaveCommand;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,5 +12,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DefaultAuditFlowApp {
+  @Autowired
+  DefaultAuditFlowRepo defaultAuditFlowRepo;
+
+  public void save(DefaultAuditFlowSaveCommand saveCommand){
+
+    DefaultAuditFlow defaultAuditFlow = new DefaultAuditFlow(saveCommand.getCompanyId()
+        ,saveCommand.getType(), saveCommand.getDepartmentId(), saveCommand.getAuditNodes());
+    defaultAuditFlowRepo.save(defaultAuditFlow);
+
+  }
 
 }

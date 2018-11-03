@@ -47,10 +47,12 @@ public class AuditFlow extends Aggregate{
     position++;
     if(position>=auditNodes.size()){
       this.finished = true;
+
       this.nextNode = null;
     }else{
       this.nextNode = auditNodes.get(position);
     }
   }
+
 
 }

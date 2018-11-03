@@ -146,7 +146,7 @@ telephone:电话</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="74.0" width="355.0" x="-31.421784193073478" y="788.7607158827194"/>
+          <y:Geometry height="74.0" width="355.0" x="-9.6883558943847" y="719.7209647465355"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="119.20361328125" x="117.898193359375" y="3.0">ValidationService<y:LabelModel>
@@ -167,7 +167,7 @@ telephone:电话</y:AttributeLabel>
       <data key="d4"/>
       <data key="d6">
         <y:UMLClassNode>
-          <y:Geometry height="85.0" width="270.0625" x="392.25837488067634" y="783.2607158827194"/>
+          <y:Geometry height="85.0" width="270.0625" x="413.9918031793651" y="714.2209647465355"/>
           <y:Fill color="#FFCC00" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.310546875" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="147.8759765625" x="61.09326171875" y="3.0">PermissionInitService<y:LabelModel>
