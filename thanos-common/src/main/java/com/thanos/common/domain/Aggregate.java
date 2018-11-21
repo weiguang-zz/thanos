@@ -14,6 +14,7 @@ public abstract class Aggregate {
   @Id
   ObjectId id;
 
+
   public ObjectId id(){
     return id;
   }

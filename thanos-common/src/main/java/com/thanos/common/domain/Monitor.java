@@ -17,10 +17,13 @@ public class Monitor extends Aggregate {
   String name;
   //测点类型
   MonitorType type;
-  //如果是设备状态类型的测点，需要关联一个停开机测点
-  String relatedCode;
   Double lowLowThreshold;
   Double lowThreshold;
   Double highThreshold;
   Double highHighThreshold;
+
+  //when lowSS<测点值<highSS, 表示开机，否则表示关机
+  Boolean isStopStart = false;
+  Double lowSS;
+  Double highSS;
 }

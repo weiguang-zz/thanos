@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>thanos-deploy</artifactId>
+    <groupId>com.thanos</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>thanos-spm-deploy</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.thanos</groupId>
+      <artifactId>spm-rest</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>**/*</include>
+        </includes>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+          <include>*.properties</include>
+          <include>*/*.properties</include>
+          <include>*.xml</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+
+      <resource>
+        <directory>src/main/resources/bin</directory>
+        <includes>
+          <include>*.sh</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <!-- not append assembly id in release file name -->
+          <appendAssemblyId>false</appendAssemblyId>
+          <descriptors>
+            <descriptor>src/main/assembly/release.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+
+</project>

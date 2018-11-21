@@ -6,5 +6,5 @@ package com.thanos.common.domain;
  */
 public enum MonitorType {
 
-  Original,Equipment
+  semaphore,analog
 }

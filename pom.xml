@@ -25,11 +25,10 @@
 		<fastjson.version>1.2.49</fastjson.version>
 	</properties>
 	<modules>
-		<module>thanos-soulgem</module>
-		<module>thanos-spacegem</module>
+		<module>thanos-portal</module>
 		<module>thanos-deploy</module>
 		<module>thanos-common</module>
-    <module>thanos-timegem</module>
+    <module>thanos-spm</module>
   </modules>
 
 
