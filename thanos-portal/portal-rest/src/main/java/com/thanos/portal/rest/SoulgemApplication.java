@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Create by zhangzheng on 7/20/18
  * Email:zhangzheng@youzan.com
  */
-@SpringBootApplication(scanBasePackages = "com.thanos.portal")
+@SpringBootApplication(scanBasePackages = "com.thanos")
 public class SoulgemApplication {
 
   public static void main(String[] args) {
