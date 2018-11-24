@@ -3,7 +3,7 @@ package com.thanos.portal.infras.kafka;
 import static org.junit.Assert.assertEquals;
 
 import com.google.gson.Gson;
-import com.thanos.common.domain.RealTimeData;
+import com.thanos.portal.domain.monitor.RealTimeData;
 import com.thanos.portal.domain.monitor.FetchRealTimeDataService;
 import com.thanos.portal.infras.kafka.spring.KafkaAutoConfig;
 import java.util.ArrayList;

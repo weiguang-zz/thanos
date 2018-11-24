@@ -13,5 +13,4 @@ public class SoulgemApplication {
   public static void main(String[] args) {
     SpringApplication.run(SoulgemApplication.class, args);
   }
-
 }

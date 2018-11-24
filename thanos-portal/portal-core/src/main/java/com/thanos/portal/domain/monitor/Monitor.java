@@ -1,5 +1,6 @@
-package com.thanos.common.domain;
+package com.thanos.portal.domain.monitor;
 
+import com.thanos.common.domain.Aggregate;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.index.Indexed;
 

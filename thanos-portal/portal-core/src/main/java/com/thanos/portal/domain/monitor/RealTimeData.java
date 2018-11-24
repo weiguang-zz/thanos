@@ -1,4 +1,4 @@
-package com.thanos.common.domain;
+package com.thanos.portal.domain.monitor;
 
 import java.util.Date;
 import org.bson.types.ObjectId;
@@ -8,9 +8,10 @@ import org.bson.types.ObjectId;
  * Email:zhangzheng@youzan.com
  * 采集点的实时数据模型
  */
-public class RealTimeData extends Aggregate{
+public class RealTimeData {
 
   ObjectId companyId;
+  //如果是设备状态的实时数据，使用'equipment-${equipmentId}'作为monitorCode
   String monitorCode;
   Date time;
   String value;

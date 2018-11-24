@@ -1,4 +1,4 @@
-package com.thanos.common.domain;
+package com.thanos.portal.domain.monitor;
 
 /**
  * Create by zhangzheng on 11/3/18
