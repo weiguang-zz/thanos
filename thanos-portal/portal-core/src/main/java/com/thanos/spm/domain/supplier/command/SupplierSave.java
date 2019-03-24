@@ -2,11 +2,10 @@ package com.thanos.spm.domain.supplier.command;
 
 import com.thanos.common.domain.Validator;
 import com.thanos.spm.domain.supplier.Supplier;
-
-import javax.validation.constraints.NotNull;
-
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * 供应商聚合信息
@@ -17,6 +16,12 @@ import lombok.Data;
 @Data
 public class SupplierSave extends Validator<Supplier> {
 
+
+  /**
+   * 供应商id
+   */
+  @ApiModelProperty("供应商名称")
+  private Long id;
 
   /**
    * 供应商名称
@@ -41,7 +46,7 @@ public class SupplierSave extends Validator<Supplier> {
   private Integer level;
 
   public Supplier build(){
-    Supplier supplier = new Supplier(name,facsimile,level);
+    Supplier supplier = new Supplier(System.currentTimeMillis(),name,facsimile,SupplierStateEnum.CREAT.getCode(),level);
     return supplier;
   }
 

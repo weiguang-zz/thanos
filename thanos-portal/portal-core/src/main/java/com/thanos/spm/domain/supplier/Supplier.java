@@ -1,7 +1,6 @@
 package com.thanos.spm.domain.supplier;
 
 import com.thanos.common.domain.Aggregate;
-
 import lombok.Data;
 
 /**
@@ -15,9 +14,19 @@ public class Supplier extends Aggregate {
 
 
   /**
+   * id
+   */
+  private Long id;
+
+  /**
    * 供应商名称
    */
   private String name;
+
+  /**
+   * 状态 0 被删除
+   */
+  private Integer state;
 
 
   /**
@@ -31,7 +40,9 @@ public class Supplier extends Aggregate {
    */
   private Integer level;
 
-  public Supplier(String name, String facsimile, Integer level) {
+  public Supplier(Long id,String name, String facsimile, Integer state,Integer level) {
+    this.id = id;
+    this.state = state;
     this.name = name;
     this.facsimile = facsimile;
     this.level = level;
